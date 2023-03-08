@@ -1,7 +1,7 @@
 <br>
 <br>
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:E3DEDC,100:C3A6A0&height=180&section=header&text=God%20Life%20&fontSize=90&)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:E3DEDC,100:C3A6A0&height=180&section=header&text=God%20Life%20&fontSize=90&fontAlign=50)
 
 <br>
 
