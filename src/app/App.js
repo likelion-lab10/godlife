@@ -1,7 +1,9 @@
+import Recruitment from "pages/Recruitment";
+
 function App() {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Recruitment />
     </div>
   );
 }
