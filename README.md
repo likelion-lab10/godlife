@@ -12,10 +12,6 @@
 <!--[![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]-->
 
-~~습관을 만들어주는 최고의 형성 프로세스입니다~~
-
-소개말 추가 예정
-
 ![](../header.png)
 
 <p align="center">
@@ -31,7 +27,7 @@
 ## 프로젝트 소개
 
 <p align="justify">
-<del>의미있는 갓생을 살아가고자 하는 모든 이들에게 바칩니다</del>
+21일의 기적을 만들어주는 웹앱 프로젝트 입니다.
 </p>
 
 <p align="center">
@@ -114,4 +110,4 @@ XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+[wiki]: https://github.com/likelion-lab10/godlife/wiki
