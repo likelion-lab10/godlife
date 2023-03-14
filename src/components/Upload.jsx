@@ -1,15 +1,18 @@
-import goBack from '../assets/go-back.svg'
 import ImgInput from './ImgInput';
 import Introduce from './Introduce';
 import InputTitle from './InputTitle';
+import BackButton from './BackButton';
+import Container from './Container';
+import SubmitButton from './SubmitButton';
 function Upload(){
   return (
-    <div>
+    <Container>
+      <BackButton/>
       <InputTitle />
-      <img src={goBack} alt='뒤로가기 이미지' />
       <Introduce />
       <ImgInput />
-    </div>
+      <SubmitButton />
+    </Container>
   ) 
 }
 
