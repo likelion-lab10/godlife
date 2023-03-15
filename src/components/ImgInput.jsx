@@ -1,18 +1,24 @@
 import { useRef, useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
-import { dbService } from 'fbase';
+// import { addDoc, collection } from 'firebase/firestore';
+// import { dbService } from 'fbase';
+import { storageService } from '../fbase';
+import { ref, uploadBytes } from "@firebase/storage";
+import { v4 as uuid4 } from "uuid";
 
 function ImgInput(){
-  const [challenge, setChallenge] = useState('');
+  const [challenge, setChallenge] = useState("");
   const [attatchment, setAttatchment] = useState("");
   const fileInput = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
-    await addDoc(collection(dbService, "challenges"),{
-      challenge,
-      createdAt: Date.now(),
-    });
-    setChallenge('');
+    const fileRef = ref(storageService, `${uuid4()}`);
+    const response = await uploadBytes(fileRef, attatchment, "data_url");
+    console.log(response)
+    // await addDoc(collection(dbService, "challenges"),{
+    //   challenge,
+    //   createdAt: Date.now(),
+    // });
+    // setChallenge('');
   }
   const onChange = (e) => {
     const {
