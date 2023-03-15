@@ -1,9 +1,9 @@
-import { FormInput, SubmitButton, Header } from 'components';
 import { useRef } from 'react';
-import debounce from 'lodash.debounce';
 import { isEmail } from 'utils';
-import { useSignUp, useAuthState } from 'fbase/auth';
+import debounce from 'lodash.debounce';
+import { useSignUp } from 'fbase/auth';
 import { useCreateAuthUser } from 'fbase/firestore';
+import { FormInput, SubmitButton, Header } from 'components';
 
 const initialFormState = {
   name: '',
@@ -17,7 +17,6 @@ export default function RegisterPage() {
 
   const { signUp } = useSignUp();
   const { createAuthUser } = useCreateAuthUser();
-  const { isLoading, error, user } = useAuthState();
 
   const formStateRef = useRef(initialFormState);
 
@@ -41,7 +40,6 @@ export default function RegisterPage() {
     }
 
     if (!password || password.trim().length < 10) {
-      console.log(password.trim().length);
       console.error('비밀번호를 10자 이상 입력해주세요.');
       return;
     }
@@ -58,7 +56,7 @@ export default function RegisterPage() {
   const onInputHandler = debounce((e) => {
     const { name, value } = e.target;
     formStateRef.current[name] = value;
-  }, 400);
+  }, 300);
 
   return (
     <>
