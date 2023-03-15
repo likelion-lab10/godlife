@@ -1,24 +1,30 @@
 import { useRef, useState } from 'react';
-// import { addDoc, collection } from 'firebase/firestore';
-// import { dbService } from 'fbase';
+import { addDoc, collection } from 'firebase/firestore';
+import { dbService } from 'fbase';
 import { storageService } from '../fbase';
-import { ref, uploadBytes } from "@firebase/storage";
+import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import { v4 as uuid4 } from "uuid";
 
 function ImgInput(){
   const [challenge, setChallenge] = useState("");
-  const [attatchment, setAttatchment] = useState("");
+  const [attachment, setAttatchment] = useState("");
   const fileInput = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
-    const fileRef = ref(storageService, `${uuid4()}`);
-    const response = await uploadBytes(fileRef, attatchment, "data_url");
-    console.log(response)
-    // await addDoc(collection(dbService, "challenges"),{
-    //   challenge,
-    //   createdAt: Date.now(),
-    // });
-    // setChallenge('');
+    let attachmentUrl = '';
+    if(attachment !== ""){
+      const attachmentRef = ref(storageService, `${uuid4()}`);
+      const response = await uploadBytes(attachmentRef, attachment, "data_url");
+      attachmentUrl = await getDownloadURL(response.ref)
+    }
+    const challengObj = {
+      challenge,
+      createdAt: Date.now(),
+      attachmentUrl
+    }
+    await addDoc(collection(dbService, "challenges"),challengObj);
+    setChallenge('');
+    setAttatchment("");
   }
   const onChange = (e) => {
     const {
@@ -52,7 +58,7 @@ function ImgInput(){
       <form name='recruitment' onSubmit={onSubmit}>
         <div className='text-h3 text-gray mt-[26px]'>사진등록</div>
         <label htmlFor="profileImg" className='block bg-[#EAEAEA] w-[137px] h-[124px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mt-[10px] cursor-pointer'>
-        {attatchment && <img className='-indent-[9999px] block m-auto pt-[20px] w-[120px] h-[110px]' src={attatchment} alt="이미지"/>}
+        {attachment && <img className='-indent-[9999px] block m-auto pt-[20px] w-[120px] h-[110px]' src={attachment} alt="이미지"/>}
         </label>
         <input type="file" style={{ display: "none" }} accept="image/*" id="profileImg" onChange={onFileChange} ref={fileInput} />
         <div className='mt-[47px] mb-[10px] text-gray'>내용</div>
