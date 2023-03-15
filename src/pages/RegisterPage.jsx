@@ -1,9 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { isEmail } from 'utils';
 import debounce from 'lodash.debounce';
 import { useSignUp } from 'fbase/auth';
 import { useCreateAuthUser } from 'fbase/firestore';
-import { FormInput, SubmitButton, Header } from 'components';
+import { FormInput, SubmitButton } from 'components';
 
 const initialFormState = {
   name: '',
@@ -19,34 +19,30 @@ export default function RegisterPage() {
   const { createAuthUser } = useCreateAuthUser();
 
   const formStateRef = useRef(initialFormState);
+  const [disabled, setDisabled] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const { name, nickname, email, password, passwordConfirm } = formStateRef.current;
 
     if (!name || name.trim().length < 2) {
-      console.error('이름은 2글자 이상 입력해야 합니다.');
+      setErrorMessage('이름은 2글자 이상 입력해야 합니다.');
       return;
-    }
-
-    if (!nickname || nickname.trim().length < 2) {
-      console.error('닉네임은 2글자 이상 입력해야 합니다.');
+    } else if (!nickname || nickname.trim().length < 2) {
+      setErrorMessage('닉네임은 2글자 이상 입력해야 합니다.');
       return;
-    }
-
-    if (!isEmail(email)) {
-      console.error('이메일 형식에 맞지 않는 메일 주소입니다. 다시 입력해 주세요.');
+    } else if (!isEmail(email)) {
+      setErrorMessage(`이메일 형식에 맞지 않는 메일 주소입니다.`);
       return;
-    }
-
-    if (!password || password.trim().length < 10) {
-      console.error('비밀번호를 10자 이상 입력해주세요.');
+    } else if (!password || password.trim().length < 10) {
+      setErrorMessage('비밀번호를 10자 이상 입력해주세요.');
       return;
-    }
-
-    if (!Object.is(password, passwordConfirm)) {
-      console.error('비밀번호가 일치하지 않습니다.');
+    } else if (!Object.is(password, passwordConfirm)) {
+      setErrorMessage('비밀번호가 일치하지 않습니다.');
       return;
+    } else {
+      setErrorMessage('');
     }
 
     const user = await signUp(email, password, name);
@@ -58,16 +54,58 @@ export default function RegisterPage() {
     formStateRef.current[name] = value;
   }, 300);
 
+  const onClickHandler = (e) => {
+    setDisabled(!disabled);
+  }
+
   return (
     <>
-      <Header>회원가입</Header>
-      <form className="flex flex-col justify-center items-center gap-12" onSubmit={onSubmitHandler} >
-        <FormInput name="name" type="text" placeholder="이름" label="이름" srOnly={true} onChange={onInputHandler} />
-        <FormInput name="nickname" type="text" placeholder="닉네임" label="닉네임" srOnly={true} onChange={onInputHandler} />
-        <FormInput name="email" type="email" placeholder="이메일" label="이메일" srOnly={true} onChange={onInputHandler} />
-        <FormInput name="password" type="password" placeholder="비밀번호" label="비밀번호" srOnly={true} onChange={onInputHandler} />
-        <FormInput name="passwordConfirm" type="password" placeholder="비밀번호 확인" label="비밀번호 확인" srOnly={true} onChange={onInputHandler} />
-        <SubmitButton mt="mt-10" text="회원가입" />
+      <h2 className='text-h1 text-center mt-20 mb-12'>회원가입</h2>
+      <form className="flex flex-col justify-center items-center gap-11" onSubmit={onSubmitHandler} >
+        <FormInput
+          name="name"
+          label="이름"
+          placeholder="이름"
+          onChange={onInputHandler}
+        />
+        <FormInput
+          name="nickname"
+          label="닉네임"
+          placeholder="닉네임"
+          onChange={onInputHandler}
+        />
+        <FormInput
+          name="email"
+          type="email"
+          label="이메일"
+          placeholder="이메일"
+          onChange={onInputHandler}
+        />
+        <FormInput
+          name="password"
+          type="password"
+          label="비밀번호"
+          placeholder="비밀번호"
+          onChange={onInputHandler}
+        />
+        <FormInput
+          name="passwordConfirm"
+          type="password"
+          label="비밀번호 확인"
+          placeholder="비밀번호 확인"
+          onChange={onInputHandler}
+        />
+        <div className='flex'>
+          <FormInput
+            name="개인정보수집동의"
+            type="checkbox"
+            label="개인정보 수집에 대한 동의"
+            srOnly={false}
+            onClick={onClickHandler}
+          />
+        </div>
+        <p className="text-rose-600 mt-12">{errorMessage}</p>
+        <SubmitButton disabled={disabled}>회원가입</SubmitButton>
       </form>
     </>
   )
