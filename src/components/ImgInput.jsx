@@ -10,7 +10,7 @@ function ImgInput(){
   const imgRef = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
-    const docRef = await addDoc(collection(dbService, "challenges"),{
+    await addDoc(collection(dbService, "challenges"),{
       challenge,
       createdAt: Date.now(),
     });
