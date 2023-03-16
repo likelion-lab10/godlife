@@ -1,4 +1,4 @@
-export function SubmitButton({ social = false, disabled = true, tailwindClass, children, ...restProps }) {
+export function SubmitButton({ social = false, disabled = true, className, children, ...restProps }) {
 
   let style = '';
   if (social) {
@@ -9,10 +9,12 @@ export function SubmitButton({ social = false, disabled = true, tailwindClass, c
     style = "bg-[#0C2340] text-white";
   }
 
+  let combinedClass = `${style} ${className}`
+
   return (
     <button
       disabled={disabled}
-      className={`border w-80 h-12 rounded-full ${style}`}
+      className={`border w-80 h-12 rounded-full ${combinedClass}`}
       type="submit"
       {...restProps}
     >
