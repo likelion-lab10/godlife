@@ -1,14 +1,17 @@
 import React from 'react';
 
-const FilterButton = ({ filter, selected, handleFilterClick }) => {
-  return (
+const FilterButton = ({ filter, selected, handleFilterClick, icon }) => {
+   return (
     <button
-      className={`px-4 py-2 text-xs font-medium leading-4 rounded-full ${
+      className={`px-1.5 py-2 text-xs font-medium leading-4 rounded-full ${
         selected ? 'text-white bg-primary' : 'text-gray-700 bg-white'
       }`}
       onClick={() => handleFilterClick(filter)}
     >
-      {filter}
+      <div className="flex items-center">
+        {icon && <img src={icon} alt="icon" className="w-4 h-4 mr-2" />}
+        <div>{filter}</div>
+      </div>
     </button>
   );
 };
