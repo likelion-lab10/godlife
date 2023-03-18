@@ -1,9 +1,10 @@
 import { useRef } from "react";
 import debounce from "lodash.debounce";
 import { Link } from 'react-router-dom';
-import { useSignIn, useAuthState, auth } from 'fbase/auth';
+import { useCreateAuthUser } from 'fbase/firestore';
 import { FormInput, SubmitButton } from "components";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useSignIn, useAuthState, auth } from 'fbase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const initialFormState = {
   email: '',
@@ -14,6 +15,7 @@ export default function LoginPage() {
   const formRef = useRef(initialFormState);
   const { signIn, isLoading } = useSignIn();
   const { user } = useAuthState();
+  const { createAuthUser } = useCreateAuthUser();
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -33,8 +35,16 @@ export default function LoginPage() {
   const googleLoginHandler = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
+      .then(async (data) => await createAuthUser(data))
+      .catch((err) => console.log(err));
+  }
+
+  const facebookLoginHandler = () => {
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+    console.log(user);
   }
 
   if (isLoading) {
@@ -63,7 +73,7 @@ export default function LoginPage() {
           <img className="mr-2 w-5 h-5" src="assets/google.png" alt="구글 아이콘" />
           구글로 시작하기
         </SubmitButton>
-        <SubmitButton className="flex justify-center items-center" social={true}>
+        <SubmitButton className="flex justify-center items-center" social={true} onClick={facebookLoginHandler}>
           <img className="mr-2 w-5 h-5" src="assets/facebook.png" alt="페이스북 아이콘" />
           페이스북으로 시작하기
         </SubmitButton>
