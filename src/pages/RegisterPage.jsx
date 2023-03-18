@@ -1,7 +1,8 @@
-import { useRef, useState } from 'react';
 import { isEmail } from 'utils';
 import debounce from 'lodash.debounce';
 import { useSignUp } from 'fbase/auth';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCreateAuthUser } from 'fbase/firestore';
 import { FormInput, SubmitButton } from 'components';
 
@@ -15,7 +16,9 @@ const initialFormState = {
 
 export default function RegisterPage() {
 
-  const { signUp } = useSignUp();
+  let navigate = useNavigate();
+
+  const { signUp, isLoading, error } = useSignUp();
   const { createAuthUser } = useCreateAuthUser();
 
   const formStateRef = useRef(initialFormState);
@@ -47,6 +50,7 @@ export default function RegisterPage() {
 
     const user = await signUp(email, password, name);
     await createAuthUser(user);
+    await navigate('/login');
   }
 
   const onInputHandler = debounce((e) => {
@@ -58,9 +62,27 @@ export default function RegisterPage() {
     setDisabled(!disabled);
   }
 
+  if (isLoading) {
+    return (
+      <div role='alert' className='flex justify-center items-center h-screen'>
+        <img src="assets/loading.svg" alt="로딩중" />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className='flex flex-col justify-center items-center h-screen gap-12'>
+        <div role='alert' className="text-xl">이미 사용중인 이메일 입니다.</div>
+        <SubmitButton disabled={false} onClick={() => navigate('/login')}>로그인 페이지로 이동</SubmitButton>
+      </div>
+    )
+  }
+
   return (
     <>
       <h2 className='text-h1 text-center mt-20 mb-12'>회원가입</h2>
+      <button className='text-h1 absolute top-20 left-12 text-gray' onClick={() => navigate('/login')}>&times;</button>
       <form className="flex flex-col justify-center items-center gap-11" onSubmit={onSubmitHandler} >
         <FormInput
           name="name"
