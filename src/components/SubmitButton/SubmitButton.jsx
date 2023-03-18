@@ -1,4 +1,4 @@
-export function SubmitButton({ social = false, disabled = true, className, children, ...restProps }) {
+export function SubmitButton({ social = false, disabled = false, className, children, ...restProps }) {
 
   let style = '';
   if (social) {
