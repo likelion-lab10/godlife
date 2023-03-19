@@ -1,8 +1,20 @@
+import { BrowserRouter, Routes } from "react-router-dom";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path="/main" element={ } />
+        <Route path="/login" element={ } />
+        <Route path="/register" element={ } />
+        <Route path="/dashboard" element={ } />
+        <Route path="/filter" element={ } />
+        <Route path="/search" element={ } />
+        <Route path="/certificate" element={ } />
+        <Route path="/recruit" element={ } />
+        <Route path="/participate" element={ } /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
