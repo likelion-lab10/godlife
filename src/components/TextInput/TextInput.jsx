@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-export default function TextInput({ children, name, ...restProps }) {
+export default function TextInput({ children, type = 'text', name, ...restProps }) {
 
   const id = useId();
 
@@ -10,7 +10,7 @@ export default function TextInput({ children, name, ...restProps }) {
       <input
         className='border-b border-black w-80 p-1 outline-none'
         id={id}
-        type='text'
+        type={type}
         name={name}
         {...restProps}
       />
