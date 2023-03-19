@@ -26,7 +26,7 @@ const ChallengeCard = ({ challenge }) => {
       <BrowserRouter>
         <Link to={`/challenge/${challenge.id}`}>
           <div
-            className={`bg-white ${boxShadow} rounded-2xl overflow-hidden`}
+            className={`bg-background ${boxShadow} rounded-2xl overflow-hidden`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
