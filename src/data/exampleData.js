@@ -1,10 +1,15 @@
-import runningImage from '../assets/running.jpg';
-import readingImage from '../assets/reading.jpg';
-import wakeupImage from '../assets/wakeup.jpg';
-import drinkingImage from '../assets/drinking.jpg';
-import ploggingImage from '../assets/plogging.jpg';
-import zerowasteImage from '../assets/zerowaste.jpg';
-import beachcombingImage from '../assets/beachcombing.jpg';
+import runningImage from '../assets/images/running.jpg';
+import readingImage from '../assets/images/reading.jpg';
+import wakeupImage from '../assets/images/wakeup.jpg';
+import drinkingImage from '../assets/images/drinking.jpg';
+import ploggingImage from '../assets/images/plogging.jpg';
+import zerowasteImage from '../assets/images/zerowaste.jpg';
+import beachcombingImage from '../assets/images/beachcombing.jpg';
+import readingnewsImage from '../assets/images/readingnews.jpg';
+import meditationImage from '../assets/images/meditation.jpg';
+import saladImage from '../assets/images/salad.jpg';
+import eatingImage from '../assets/images/eating.jpg';
+import writingImage from '../assets/images/writing.jpg';
 
 const exampleData = [
   {
@@ -28,7 +33,7 @@ const exampleData = [
   {
     id: 4,
     title: '💧 물 1L 마시기',
-    category: '생활습관',
+    category: '식습관',
     imageUrl: drinkingImage,
   },
   {
@@ -51,33 +56,33 @@ const exampleData = [
   },
   {
     id: 8,
-    title: '💧 물 1L 마시기',
-    category: '환경',
-    imageUrl: drinkingImage,
+    title: '📰 뉴스/신문 읽기',
+    category: '생활습관',
+    imageUrl: readingnewsImage,
   },
   {
     id: 9,
-    title: '👟 새벽 달리기',
+    title: '🧘 15분 명상하기',
     category: '생활습관',
-    imageUrl: runningImage,
+    imageUrl: meditationImage,
   },
   {
     id: 10,
-    title: '📖 책 한권 읽기',
-    category: '취미',
-    imageUrl: readingImage,
+    title: '🥗 샐러드 한 끼',
+    category: '식습관',
+    imageUrl: saladImage,
   },
   {
     id: 11,
-    title: '⏰ 미라클 모닝',
-    category: '생활습관',
-    imageUrl: wakeupImage,
+    title: '🥘 맛집 탐방',
+    category: '취미',
+    imageUrl: eatingImage,
   },
   {
     id: 12,
-    title: '💧 물 1L 마시기',
-    category: '환경',
-    imageUrl: drinkingImage,
+    title: '📒 일기 쓰기',
+    category: '생활습관',
+    imageUrl: writingImage,
   },
 ];
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import FilterButton from './FilterButton';
 import calendarIcon from '../assets/calendar.svg';
 import foodIcon from '../assets/food.svg';

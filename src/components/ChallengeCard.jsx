@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
-import runningImage from '../assets/running.jpg';
-import readingImage from '../assets/reading.jpg';
-import wakeupImage from '../assets/wakeup.jpg';
-import drinkingImage from '../assets/drinking.jpg';
-import ploggingImage from '../assets/plogging.jpg';
-import zerowasteImage from '../assets/zerowaste.jpg';
-import beachcombingImage from '../assets/beachcombing.jpg';
+import { runningImage, readingImage, wakeupImage, drinkingImage, 
+         ploggingImage, zerowasteImage, beachcombingImage, readingnewsImage,
+         meditationImage, saladImage, eatingImage, writingImage } from '../index.js';
 
+// 마우스 오버 이벤트
 const ChallengeCard = ({ challenge }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 

@@ -1,6 +1,5 @@
-import React from 'react';
 import ChallengeCard from './ChallengeCard';
-import ChallengeCardGrid from '../components/ChallengeCardGrid';
+// import ChallengeCardGrid from '../components/ChallengeCardGrid';
 import exampleData from '../data/exampleData';
 
 const ChallengeList = ({ challenges }) => {
