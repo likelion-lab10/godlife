@@ -4,6 +4,9 @@ import runningImage from '../assets/running.jpg';
 import readingImage from '../assets/reading.jpg';
 import wakeupImage from '../assets/wakeup.jpg';
 import drinkingImage from '../assets/drinking.jpg';
+import ploggingImage from '../assets/plogging.jpg';
+import zerowasteImage from '../assets/zerowaste.jpg';
+import beachcombingImage from '../assets/beachcombing.jpg';
 
 const ChallengeCard = ({ challenge }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -27,13 +30,16 @@ const ChallengeCard = ({ challenge }) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <img
-              className="h-full w-full object-cover rounded-xl"
-              src={challenge.imageUrl}
-              alt={challenge.title}
-            />
-            <div className="p-4 -ml-2 rounded-2xl h-10">
-              <h2 className="font-medium text-sm text-center -mt-1">{challenge.title}</h2>
+            <div className="h-40 overflow-hidden">
+              <img
+                className="h-40 w-full object-cover rounded-t-2xl"
+                src={challenge.imageUrl}
+                alt={challenge.title}
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+            <div className="px-4 py-2">
+              <h2 className="font-medium text-sm text-center">{challenge.title}</h2>
             </div>
           </div>
         </Link>
@@ -42,4 +48,4 @@ const ChallengeCard = ({ challenge }) => {
   );
 };
 
-export default ChallengeCard; 
+export default ChallengeCard;

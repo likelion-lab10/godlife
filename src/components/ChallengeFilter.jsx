@@ -15,9 +15,12 @@ const iconPaths = {
 
 const ChallengeFilter = ({ filters, selectedFilter, setSelectedFilter }) => {
   const handleFilterClick = (filter) => {
-    setSelectedFilter(filter);
-  };  
-
+    if (selectedFilter === filter) {
+      setSelectedFilter(''); // 선택된 필터가 클릭된 경우 초기화
+    } else {
+      setSelectedFilter(filter);
+    }
+  };
 
   return (
     <div className="flex flex-wrap items-center justify-center w-full py-6 space-x-4">
