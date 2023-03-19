@@ -8,13 +8,13 @@ function Category() {
   const [challenges, setChallenges] = useState(exampleData);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [loading, setLoading] = useState(true);
-  const [selectedFilter, setSelectedFilter] = useState('All');
+  const [selectedFilter, setSelectedFilter] = useState('');
   const [filteredChallenges, setFilteredChallenges] = useState([]);
 
   const filters = ['생활습관', '식습관', '취미', '환경'];
 
   const updateFilteredChallenges = useCallback(() => {
-    const filteredChallenges = selectedFilter === 'All'
+    const filteredChallenges = selectedFilter === ''
       ? challenges
       : challenges.filter(challenge => challenge.category === selectedFilter);
     setFilteredChallenges(filteredChallenges);
@@ -43,7 +43,7 @@ function Category() {
           }}
         />
         <h3 className="px-2 py-4 text-h2 font-medium leading-tight text-left text-black">
-          {selectedFilter === 'All' ? '전체' : selectedFilter}
+          {selectedFilter === '' ? '전체' : selectedFilter}
         </h3>
         <ChallengeList challenges={filteredChallenges} />
       </div>
