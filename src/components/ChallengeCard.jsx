@@ -26,7 +26,7 @@ const ChallengeCard = ({ challenge }) => {
             className={`bg-background ${boxShadow} rounded-2xl overflow-hidden`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-          >
+            >
             <div className="h-40 overflow-hidden">
               <img
                 className="h-40 w-full object-cover rounded-t-2xl"
