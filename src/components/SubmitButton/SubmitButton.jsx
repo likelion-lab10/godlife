@@ -1,4 +1,4 @@
-export function SubmitButton({
+function SubmitButton({
   children,
   disabled = false,
   type = 'submit',
@@ -26,3 +26,5 @@ export function SubmitButton({
     <button disabled={disabled} type={type} className={style} {...restProps}>{children}</button>
   )
 }
+
+export default SubmitButton;

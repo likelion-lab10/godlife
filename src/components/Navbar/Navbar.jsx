@@ -11,7 +11,7 @@ const link = [
   { icon: <ProfileIcon />, link: '/profile', key: 'profile' },
 ];
 
-export function Navbar() {
+function Navbar() {
 
   const navigate = useNavigate();
 
@@ -27,3 +27,5 @@ export function Navbar() {
     </div>
   )
 }
+
+export default Navbar;
