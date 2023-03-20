@@ -1,13 +1,13 @@
 import ImgInput from './ImgInput';
 import Introduce from './Introduce';
-import InputTitle from './InputTitle';
-import BackButton from './BackButtonSub';
 import Container from './Container';
+import BackButton from './BackButton/BackButton';
+import PageTitle from './PageTitle/PageTitle';
 function Upload(){
   return (
     <Container>
-      <BackButton/>
-      <InputTitle />
+      <BackButton />
+      <PageTitle children='모집' />
       <Introduce />
       <ImgInput />
     </Container>

@@ -5,7 +5,7 @@ function SubmitButton({
   name = '',
   ...restProps }) {
 
-  let style = 'border w-80 h-12 rounded-full ';
+  let style = 'border w-80 h-12 rounded-full flex justify-center items-center ';
   switch (name) {
     case 'social':
       style += 'border-[#0C2340] text-[#0C2340]';
