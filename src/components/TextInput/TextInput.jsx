@@ -17,3 +17,5 @@ export function TextInput({ children, type = 'text', name, ...restProps }) {
     </>
   )
 }
+
+export default TextInput;

@@ -1,6 +1,6 @@
-export * from './Navbar/Navbar';
-export * from './TextInput/TextInput';
-export * from './PageTitle/PageTitle';
-export * from './BackButton/BackButton';
-export * from './SubmitButton/SubmitButton';
-export * from './CreateChallengeButton/CreateChallengeButton';
+export { default as Navbar } from './Navbar/Navbar';
+export { default as TextInput } from './TextInput/TextInput';
+export { default as PageTitle } from './PageTitle/PageTitle';
+export { default as BackButton } from './BackButton/BackButton';
+export { default as SubmitButton } from './SubmitButton/SubmitButton';
+export { default as CreateChallengeButton } from './CreateChallengeButton/CreateChallengeButton';
