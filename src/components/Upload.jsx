@@ -1,7 +1,7 @@
 import ImgInput from './ImgInput';
 import Introduce from './Introduce';
 import InputTitle from './InputTitle';
-import BackButton from './BackButton';
+import BackButton from './BackButtonSub';
 import Container from './Container';
 function Upload(){
   return (
