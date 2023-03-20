@@ -7,8 +7,6 @@ import exampleData from '../data/exampleData';
 // 상태값 관리
 function Category() {
   const [challenges, setChallenges] = useState(exampleData);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [loading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState('');
   const [filteredChallenges, setFilteredChallenges] = useState([]);
 
@@ -32,7 +30,7 @@ function Category() {
   }, [selectedFilter, updateFilteredChallenges]);
   
   return (
-    <div className="min-h-screen px-6 py-20 bg-background">
+    <section className="min-h-screen px-6 py-20 bg-background">
       <h3 className="px-2 text-h2 font-medium leading-tight text-left text-black">
         카테고리
       </h3>
@@ -53,7 +51,7 @@ function Category() {
           {/* 도전과제 목록을 필터링하여 filteredChallenges 상태값에 업데이트 */}
         <ChallengeList challenges={filteredChallenges} />
       </div>
-    </div>
+    </section>
   );
 }
 
