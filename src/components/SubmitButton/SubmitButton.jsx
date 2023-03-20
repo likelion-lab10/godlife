@@ -1,4 +1,4 @@
-export default function SubmitButton({
+export function SubmitButton({
   children,
   disabled = false,
   type = 'submit',
@@ -12,7 +12,7 @@ export default function SubmitButton({
       break;
 
     case 'mini':
-      style = 'border w-[60px] rounded-full h-6 bg-black text-white';
+      style = 'border w-16 rounded-full h-8 bg-black text-white text-sm font-normal';
       break;
 
     default:

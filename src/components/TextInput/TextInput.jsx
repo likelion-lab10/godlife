@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-export default function TextInput({ children, type = 'text', name, ...restProps }) {
+export function TextInput({ children, type = 'text', name, ...restProps }) {
 
   const id = useId();
 

@@ -11,12 +11,12 @@ const link = [
   { icon: <ProfileIcon />, link: '/profile', key: 'profile' },
 ];
 
-export default function Navbar() {
+export function Navbar() {
 
   const navigate = useNavigate();
 
   return (
-    <div className='h-screen flex justify-center items-end'>
+    <div className='absolute bottom-0 left-[50%] -translate-x-1/2'>
       <ul className='h-[68px] w-[390px] flex justify-around items-center space-around border-t'>
         {
           link.map((list) => {
