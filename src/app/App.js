@@ -10,8 +10,11 @@ function Challenge() {
 }
 
 function App() {
+  const basename = `/challenge`;
+  
+
   return (
-    <BrowserRouter basename="/challenge">
+    <BrowserRouter>
       <div>
         <Category />
         <Routes>
