@@ -5,6 +5,7 @@ import { storageService } from '../fbase';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
+import FileInput from './TextInput/FileInput';
 
 function ImgInput(){
   const [challenge, setChallenge] = useState("");
@@ -58,10 +59,9 @@ function ImgInput(){
     <>
       <form name='recruitment' onSubmit={onSubmit}>
         <div className='text-h3 text-gray mt-[26px]'>사진등록</div>
-        <label htmlFor="profileImg" className='block bg-[#EAEAEA] w-[137px] h-[124px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mt-[10px] cursor-pointer'>
-        {attachment && <img className='-indent-[9999px] block m-auto pt-[20px] w-[120px] h-[110px]' src={attachment} alt="이미지"/>}
-        </label>
-        <input type="file" style={{ display: "none" }} accept="image/*" id="profileImg" onChange={onFileChange} ref={fileInput} />
+        <FileInput onChange={onFileChange} ref={fileInput}>
+          {attachment && <img className='-indent-[9999px] block m-auto pt-[20px] w-[120px] h-[110px]' src={attachment} alt="이미지"/>}
+        </FileInput>
         <div className='mt-[47px] mb-[10px] text-gray'>내용</div>
         <textarea className='bg-[#EAEAEA] w-[329px] h-[208px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-text placeholder:indent-2.5 leading-10' value={challenge} onChange={onChange} placeholder='내용을 입력해 주세요' ref={fileInput}></textarea>
         <ChallengeSubmitButton type='submit' onClick={onClearAttachment} >완료</ChallengeSubmitButton>
