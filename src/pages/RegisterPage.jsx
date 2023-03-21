@@ -4,7 +4,7 @@ import { useSignUp } from 'fbase/auth';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCreateAuthUser } from 'fbase/firestore';
-import { FormInput, SubmitButton } from 'components';
+import { BackButton, PageTitle, SubmitButton, TextInput } from 'components';
 
 const initialFormState = {
   name: '',
@@ -13,8 +13,7 @@ const initialFormState = {
   password: '',
   passwordConfirm: '',
 }
-
-export default function RegisterPage() {
+function RegisterPage() {
 
   let navigate = useNavigate();
 
@@ -81,50 +80,27 @@ export default function RegisterPage() {
 
   return (
     <>
-      <h2 className='text-h1 text-center mt-20 mb-12'>회원가입</h2>
-      <button className='text-h1 absolute top-20 left-12 text-gray' onClick={() => navigate('/login')}>&times;</button>
-      <form className="flex flex-col justify-center items-center gap-11" onSubmit={onSubmitHandler} >
-        <FormInput
-          name="name"
-          label="이름"
-          placeholder="이름"
-          onChange={onInputHandler}
-        />
-        <FormInput
-          name="nickname"
-          label="닉네임"
-          placeholder="닉네임"
-          onChange={onInputHandler}
-        />
-        <FormInput
-          name="email"
-          type="email"
-          label="이메일"
-          placeholder="이메일"
-          onChange={onInputHandler}
-        />
-        <FormInput
-          name="password"
-          type="password"
-          label="비밀번호"
-          placeholder="비밀번호"
-          onChange={onInputHandler}
-        />
-        <FormInput
-          name="passwordConfirm"
-          type="password"
-          label="비밀번호 확인"
-          placeholder="비밀번호 확인"
-          onChange={onInputHandler}
-        />
+      <PageTitle>회원가입</PageTitle>
+      <BackButton />
+      <form className="flex flex-col justify-center items-center gap-11 mt-12" onSubmit={onSubmitHandler} >
+        <TextInput name="name" placeholder="이름" onChange={onInputHandler}>
+          이름
+        </TextInput>
+        <TextInput name="nickname" placeholder="닉네임" onChange={onInputHandler}>
+          닉네임
+        </TextInput>
+        <TextInput name="email" type="email" placeholder="이메일" onChange={onInputHandler}>
+          이메일
+        </TextInput>
+        <TextInput name="password" type="password" placeholder="비밀번호" onChange={onInputHandler}>
+          비밀번호
+        </TextInput>
+        <TextInput name="passwordConfirm" type="password" placeholder="비밀번호 확인" onChange={onInputHandler}>
+          비밀번호 확인
+        </TextInput>
         <div className='flex'>
-          <FormInput
-            name="개인정보수집동의"
-            type="checkbox"
-            label="개인정보 수집에 대한 동의"
-            srOnly={false}
-            onClick={onClickHandler}
-          />
+          <input id="1" className='mr-2' type='checkbox' name='개인정보수집동의' onClick={onClickHandler} />
+          <label id="1">개인정보 수집에 대한 동의</label>
         </div>
         <p className="text-rose-600 mt-12">{errorMessage}</p>
         <SubmitButton disabled={disabled}>회원가입</SubmitButton>
@@ -132,3 +108,5 @@ export default function RegisterPage() {
     </>
   )
 }
+
+export default RegisterPage;
