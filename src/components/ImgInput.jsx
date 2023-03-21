@@ -18,7 +18,7 @@ function ImgInput(){
       const attachmentRef = ref(storageService, `${uuid4()}`);
       const response = await uploadBytes(attachmentRef, attachment, "data_url");
       attachmentUrl = await getDownloadURL(response.ref)
-    }
+    } 
     const challengObj = {
       challenge,
       createdAt: Date.now(),
@@ -34,7 +34,6 @@ function ImgInput(){
     } = e
     setChallenge(value)
   };
-  
   const onFileChange = (e) => {
     const {
       target : { files },
@@ -49,7 +48,6 @@ function ImgInput(){
     };
     reader.readAsDataURL(theFile);
   };
-
   const onClearAttachment = () => {
     setAttatchment(null);
     fileInput.current.value = null;
