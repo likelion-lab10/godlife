@@ -1,15 +1,15 @@
-import runningImage from '../assets/images/running.jpg';
-import readingImage from '../assets/images/reading.jpg';
-import wakeupImage from '../assets/images/wakeup.jpg';
-import drinkingImage from '../assets/images/drinking.jpg';
-import ploggingImage from '../assets/images/plogging.jpg';
-import zerowasteImage from '../assets/images/zerowaste.jpg';
-import beachcombingImage from '../assets/images/beachcombing.jpg';
-import readingnewsImage from '../assets/images/readingnews.jpg';
-import meditationImage from '../assets/images/meditation.jpg';
-import saladImage from '../assets/images/salad.jpg';
-import eatingImage from '../assets/images/eating.jpg';
-import writingImage from '../assets/images/writing.jpg';
+import runningImage from '../assets/exampleimages/running.jpg';
+import readingImage from '../assets/exampleimages/reading.jpg';
+import wakeupImage from '../assets/exampleimages/wakeup.jpg';
+import drinkingImage from '../assets/exampleimages/drinking.jpg';
+import ploggingImage from '../assets/exampleimages/plogging.jpg';
+import zerowasteImage from '../assets/exampleimages/zerowaste.jpg';
+import beachcombingImage from '../assets/exampleimages/beachcombing.jpg';
+import readingnewsImage from '../assets/exampleimages/readingnews.jpg';
+import meditationImage from '../assets/exampleimages/meditation.jpg';
+import saladImage from '../assets/exampleimages/salad.jpg';
+import eatingImage from '../assets/exampleimages/eating.jpg';
+import writingImage from '../assets/exampleimages/writing.jpg';
 
 const exampleData = [
   {

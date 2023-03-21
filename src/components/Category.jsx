@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import ChallengeFilter from '../components/ChallengeFilter';
-import ChallengeList from '../components/ChallengeList';
-import ChallengeCard from '../components/ChallengeCard';
+import ChallengeFilter from './ChallengeFilter';
+import ChallengeList from './ChallengeList';
+import ChallengeCard from './ChallengeCard';
 import exampleData from '../data/exampleData';
 
 // 상태값 관리

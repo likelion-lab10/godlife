@@ -7,7 +7,7 @@ const db = firebase.firestore();
 
 export default function useCategoryData() {
   const [categories, setCategories] = useState([]);
-
+  
   useEffect(() => {
     // Firestore에서 challenges 컬렉션을 가져오기
     const getCategoryData = async () => {

@@ -1,8 +1,8 @@
 import FilterButton from './FilterButton';
-import calendarIcon from '../assets/calendar.svg';
-import foodIcon from '../assets/food.svg';
-import habitIcon from '../assets/habbit.svg';
-import environmentIcon from '../assets/environment.svg';
+import calendarIcon from '../assets/filtericon/calendar.svg';
+import foodIcon from '../assets/filtericon/food.svg';
+import habitIcon from '../assets/filtericon/habbit.svg';
+import environmentIcon from '../assets/filtericon/environment.svg';
 
 
 const iconPaths = {
