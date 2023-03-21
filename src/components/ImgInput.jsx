@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react';
-import { addDoc, collection } from 'firebase/firestore';
 import { dbService } from 'fbase';
-import { storageService } from '../fbase';
-import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import { v4 as uuid4 } from "uuid";
+import { useRef, useState } from 'react';
+import { storageService } from '../fbase';
+import { addDoc, collection } from 'firebase/firestore';
+import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
+import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
 
 function ImgInput(){
   const [challenge, setChallenge] = useState("");
@@ -63,7 +64,7 @@ function ImgInput(){
         <input type="file" style={{ display: "none" }} accept="image/*" id="profileImg" onChange={onFileChange} ref={fileInput} />
         <div className='mt-[47px] mb-[10px] text-gray'>내용</div>
         <textarea className='bg-[#EAEAEA] w-[329px] h-[208px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-text placeholder:indent-2.5 leading-10' value={challenge} onChange={onChange} placeholder='내용을 입력해 주세요' ref={fileInput}></textarea>
-        <input className='block text-center bg-[#EAEAEA] w-[334px] h-[52px] mt-[63px] rounded-[100px] cursor-pointer placeholder:text-bigButton text-gray' type='submit' placeholder='완료' onClick={onClearAttachment} />
+        <ChallengeSubmitButton type='submit' onClick={onClearAttachment} >완료</ChallengeSubmitButton>
       </form>
     </>
   )
