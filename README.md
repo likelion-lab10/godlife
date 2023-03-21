@@ -263,7 +263,9 @@ npm run build
 
 ## 정보
 
-추후 기입
+밴치마킹 : 루티너리, 딸기마켓 시안, 챌린저스 앱, 인 아웃 앱, 트래커 앱
+개발 가이드 : [피그마 링크](https://www.figma.com/file/p6blGsv8wntHhZWTr1F8XN/%EA%B0%9C%EB%B0%9C-%EA%B0%80%EC%9D%B4%EB%93%9C?node-id=0-1&t=wA07Y1TXlZ2Odwdm-0)
+copyright : 멋쟁이 사자처럼 4기 파이널 프로젝트 lab10(이로운, 전하준, 윤성민, 현지수, 심유선)
 
 <!--이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
 
