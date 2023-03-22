@@ -61,7 +61,7 @@ function ImgInput(){
           {attachment && <img className='-indent-[9999px] block m-auto w-full h-full' src={attachment} alt="이미지"/>}
         </FileInput>
         <div className='mt-[47px] mb-[10px] text-gray'>내용</div>
-        <textarea className='bg-[#EAEAEA] w-[329px] h-[208px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-text placeholder:indent-2.5 leading-10 resize-none indent-2.5 leading-10' value={challenge} onChange={onChange} placeholder='내용을 입력해 주세요' ref={fileInput}></textarea>
+        <textarea className='bg-[#EAEAEA] w-[329px] h-[208px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-text placeholder:indent-2.5 resize-none indent-2.5 leading-10' value={challenge} onChange={onChange} placeholder='내용을 입력해 주세요' ref={fileInput}></textarea>
         <ChallengeSubmitButton type='submit' onClick={onClearAttachment} >완료</ChallengeSubmitButton>
       </form>
     </>
