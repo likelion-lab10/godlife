@@ -4,3 +4,6 @@ export { default as PageTitle } from './PageTitle/PageTitle';
 export { default as BackButton } from './BackButton/BackButton';
 export { default as SubmitButton } from './SubmitButton/SubmitButton';
 export { default as CreateChallengeButton } from './CreateChallengeButton/CreateChallengeButton';
+export { default as CurrentChallengeCard } from './CurrentChallengeCard/CurrentChallengeCard'
+export { default as CurrentChallengeImg } from './CurrentChallengeImg/CurrentChallengeImg'
+export { default as CurrentChallengeTitle } from './CurrentChallengeTitle/CurrentChallengeTitle'
