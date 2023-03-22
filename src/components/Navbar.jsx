@@ -12,20 +12,19 @@ const link = [
 ];
 
 function Navbar() {
-
   const navigate = useNavigate();
 
   return (
-    <div className='fixed bg-background bottom-0 left-[50%] -translate-x-1/2'>
-      <ul className='h-[68px] w-[390px] flex justify-around items-center space-around border-t'>
-        {
-          link.map((list) => {
-            return <li className='cursor-pointer' key={list.key} onClick={() => navigate(list.link)}>{list.icon}</li>
-          })
-        }
+    <div className='fixed bg-background bottom-0 left-1/2 transform -translate-x-1/2'>
+      <ul className='h-[68px] w-[390px] md:w-[720px] lg:w-[1080px] xl:w-[1920px] flex justify-around items-center border-t'>
+        {link.map((list) => (
+          <li className='cursor-pointer' key={list.key} onClick={() => navigate(list.link)}>
+            {list.icon}
+          </li>
+        ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default Navbar;
