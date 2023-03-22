@@ -6,6 +6,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
 import FileInput from './TextInput/FileInput';
+import Tag from './Tag';
 
 function ImgInput(){
   const [challenge, setChallenge] = useState("");
@@ -62,6 +63,8 @@ function ImgInput(){
         </FileInput>
         <div className='mt-[47px] mb-[10px] text-gray'>제목</div>
         <textarea className='bg-[#EAEAEA] w-[334px] h-[57px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-text resize-none indent-3.5 pt-[18px]' value={challenge} onChange={onChange} placeholder='내용을 입력해 주세요' maxLength='20' ref={fileInput}></textarea>
+        <div className='mt-[47px] mb-[10px] text-gray'>태그</div>
+        <Tag />
         <ChallengeSubmitButton type='submit' onClick={onClearAttachment} >완료</ChallengeSubmitButton>
       </form>
     </>
