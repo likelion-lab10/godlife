@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import debounce from "lodash.debounce";
 import { useCreateAuthUser } from 'fbase/firestore';
 import { Link, useNavigate } from 'react-router-dom';
@@ -14,8 +14,9 @@ const initialFormState = {
 function LoginPage() {
   const navigate = useNavigate();
   const formRef = useRef(initialFormState);
-  const { signIn, isLoading } = useSignIn();
-  const { user } = useAuthState();
+  const [ errorMessage, setErrorMessage ] = useState('');
+  const { signIn, isLoading, error:signInError } = useSignIn();
+  const { user, error:loginError } = useAuthState();
   const { createAuthUser } = useCreateAuthUser();
 
   const onSubmitHandler = async (e) => {
@@ -23,10 +24,7 @@ function LoginPage() {
 
     const { email, password } = formRef.current;
     await signIn(email, password);
-    if (user) {
-      console.log(user);
-    }
-    navigate('/');
+    if (user) navigate('/');
   }
 
   const onInputHandler = debounce((e) => {
@@ -37,17 +35,30 @@ function LoginPage() {
   const googleLoginHandler = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-      .then(async (data) => await createAuthUser(data))
-      .catch((err) => console.log(err));
-  }
+      .then(async (data) => {
+        await createAuthUser(data.user);
+        navigate('/');
+      })
+      .catch((error) => {
+        setErrorMessage('이미 사용중인 이메일 입니다.');
+      });
+  };
 
   const facebookLoginHandler = () => {
     const provider = new FacebookAuthProvider();
     signInWithPopup(auth, provider)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-    console.log(user);
-  }
+      .then(async (data) => {
+        await createAuthUser(data.user);
+        navigate('/');
+      })
+      .catch((error) => {
+        setErrorMessage('이미 사용중인 이메일 입니다.');
+      });
+  };
+
+  useEffect(() => {
+    if (signInError || loginError) setErrorMessage('등록되지 않은 이메일 입니다.');
+  }, [signInError, loginError]);
 
   if (isLoading) {
     return (
@@ -55,7 +66,7 @@ function LoginPage() {
         <img src="assets/loading.svg" alt="로딩중" />
       </div>
     )
-  }
+  }  
 
   return (
     <>
@@ -67,6 +78,7 @@ function LoginPage() {
         <TextInput name="password" type="password" placeholder="비밀번호" onChange={onInputHandler}>
           비밀번호
         </TextInput>
+        {errorMessage ? <p className="text-red-600">{errorMessage}</p> : null}
         <SubmitButton type="submit" name="로그인">로그인</SubmitButton>
       </form>
       <Link className="absolute mt-4 text-gray border-b left-1/2 -translate-x-1/2" to='/register'>회원가입</Link>
