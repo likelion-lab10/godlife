@@ -2,7 +2,7 @@ import { useId } from 'react'
 
 export function FileInput ({ children, type, name, ...restProps}) {
   const id = useId();
-  let style = 'block bg-[#EAEAEA] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mt-[10px] pt-[20px] w-[120px] h-[110px] cursor-pointer'
+  let style = 'block bg-[#EAEAEA] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] mt-[10px] w-[120px] h-[110px] cursor-pointer'
   
 
   return (
