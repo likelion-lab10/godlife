@@ -16,7 +16,7 @@ const ChallengeCard = ({ challenge }) => {
   const boxShadow = isHovered ? 'shadow-md' : 'shadow-lg';
 
   return (
-    <div className="w-auto w-1/2 mb-4">
+    <div className="w-full w-1/2 mb-4">
       <Link to={`/challenge/${challenge.id}`}>
         <div
           className={`bg-background ${boxShadow} rounded-2xl overflow-hidden`}
@@ -25,13 +25,13 @@ const ChallengeCard = ({ challenge }) => {
         >
           <div className="h-40 overflow-hidden">
             <img
-              className="h-40 w-40 object-cover rounded-t-2xl"
+              className="h-40 w-80 object-cover rounded-t-2xl"
               src={challenge.imageUrl}
               alt={challenge.title}
               style={{ objectFit: 'cover' }}
             />
           </div>
-          <div className="px-4 py-2">
+          <div className="px-1 py-2">
             <h2 className="font-medium text-sm text-center">{challenge.title}</h2>
           </div>
         </div>
