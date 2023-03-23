@@ -1,17 +1,14 @@
-import { useState } from 'react'
 import isEmptyValue from '../utils/isEmptyValue';
 
-function Tag(){
-  const [inputHashTag, setInputHashTag] = useState('');
-  const [hashTags, setHashTags] = useState([]);
-
+function Tag({...restProps}){
+  const { inputHashTag, handleInputHashTag, hashTags, handleHashTags} = restProps;
   const addHashTag = (e) => {
     const allowedCommand = ['Comma', 'Enter', 'Space', 'NumpadEnter'];
     if (!allowedCommand.includes(e.code)) return;
     if ([...hashTags].length >= 3) return;
   
     if (isEmptyValue(e.target.value.trim())) {
-      return setInputHashTag('');
+      return handleInputHashTag('');
     }
   
     let newHashTag = e.target.value.trim();
@@ -25,11 +22,11 @@ function Tag(){
   
     if (isEmptyValue(newHashTag)) return;
   
-    setHashTags((prevHashTags) => {
+    handleHashTags((prevHashTags) => {
       return [...new Set([...prevHashTags, newHashTag])];
     });
   
-    setInputHashTag('');
+    handleInputHashTag('');
   };
   
   const keyDownHandler = (e) => {
@@ -38,18 +35,18 @@ function Tag(){
   
     const regExp = /^[a-z|A-Z|가-힣|ㄱ-ㅎ|ㅏ-ㅣ|0-9| \t|]+$/g;
     if (!regExp.test(e.target.value)) {
-      setInputHashTag('');
+      handleInputHashTag('');
     }
   };
   
   const changeHashTagInput = (e) => {
-    setInputHashTag(e.target.value);
+    handleInputHashTag(e.target.value);
   };
 
   const deleteTagItem = e => {
     const deleteTagItem = e.target.parentElement.firstChild.innerText
     const filteredTagList = hashTags.filter(hashTags => hashTags !== deleteTagItem)
-    setHashTags(filteredTagList)
+    handleHashTags(filteredTagList)
   }
 
     
