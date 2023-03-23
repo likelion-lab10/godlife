@@ -8,7 +8,7 @@ import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
 import FileInput from './TextInput/FileInput';
 import Tag from './Tag';
 
-function ImgInput(){
+function Input(){
   const [challenge, setChallenge] = useState("");
   const [attachment, setAttatchment] = useState("");
   const [inputHashTag, setInputHashTag] = useState('');
@@ -77,4 +77,4 @@ function ImgInput(){
   )
 }
 
-export default ImgInput
+export default Input
