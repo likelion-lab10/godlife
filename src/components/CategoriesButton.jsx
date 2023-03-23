@@ -18,7 +18,6 @@ const CategoriesButton = ({ filter, selected, handleFilterClick }) => {
       }`}
       onClick={() => {
         handleFilterClick(filter);
-        console.log(filter);
       }}
     >
       <div className="flex items-center">
@@ -35,7 +34,6 @@ const CategoryButton = () => {
   const filters = ["생활습관", "식습관", "취미", "환경"];
 
   const handleFilterClick = (filter) => {
-    console.log(`클릭된 filter는`);
   };
 
   return (
