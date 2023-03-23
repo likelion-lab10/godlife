@@ -1,4 +1,4 @@
-import ImgInput from './ImgInput';
+import ImgInput from './Input';
 import Introduce from './Introduce';
 import Container from './Container';
 import BackButton from './BackButton/BackButton';
