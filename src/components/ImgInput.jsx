@@ -11,6 +11,7 @@ import Tag from './Tag';
 function ImgInput(){
   const [challenge, setChallenge] = useState("");
   const [attachment, setAttatchment] = useState("");
+  const [hashtag, setHashtag] = useState([]);
   const fileInput = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -23,11 +24,13 @@ function ImgInput(){
     const challengObj = {
       challenge,
       createdAt: Date.now(),
-      attachmentUrl
+      attachmentUrl,
+      hashtag : hashtag
     }
     await addDoc(collection(dbService, "challenges"),challengObj);
     setChallenge('');
     setAttatchment("");
+    setHashtag([]);
   }
   const onChange = (e) => {
     const {
@@ -49,6 +52,12 @@ function ImgInput(){
     };
     reader.readAsDataURL(theFile);
   };
+  const onTagChange = (e) => {
+    const {
+      target: { value },
+    } = e
+    setHashtag(value);
+  } 
   const onClearAttachment = () => {
     setAttatchment(null);
     fileInput.current.value = null;
@@ -64,8 +73,8 @@ function ImgInput(){
         <div className='mt-[47px] mb-[10px] text-gray'>제목</div>
         <textarea className='bg-[#EAEAEA] w-[334px] h-[57px] rounded-[15px] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-text resize-none indent-3.5 pt-[18px]' value={challenge} onChange={onChange} placeholder='내용을 입력해 주세요' maxLength='20' ref={fileInput}></textarea>
         <div className='mt-[47px] mb-[10px] text-gray'>태그</div>
-        <Tag />
-        <ChallengeSubmitButton type='submit' onClick={onClearAttachment} >완료</ChallengeSubmitButton>
+        <Tag onChange={onTagChange} ref={fileInput} />
+        <ChallengeSubmitButton type='submit' onClick={onClearAttachment}>완료</ChallengeSubmitButton>
       </form>
     </>
   )

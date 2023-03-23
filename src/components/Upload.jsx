@@ -7,7 +7,7 @@ function Upload(){
   return (
     <Container>
       <BackButton />
-      <PageTitle children='모집' />
+      <PageTitle>모집</PageTitle>
       <Introduce />
       <ImgInput />
     </Container>
