@@ -1,18 +1,20 @@
+import Tag from './Tag';
 import { dbService } from 'fbase';
 import { v4 as uuid4 } from "uuid";
 import { useRef, useState } from 'react';
 import { storageService } from '../fbase';
+import FileInput from './TextInput/FileInput';
+import CategoryButton from './CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
-import FileInput from './TextInput/FileInput';
-import Tag from './Tag';
 
 function Input(){
   const [challenge, setChallenge] = useState("");
   const [attachment, setAttatchment] = useState("");
   const [inputHashTag, setInputHashTag] = useState('');
   const [hashTags, setHashTags] = useState([]);
+  const [filter, setFilter] = useState('');
   const fileInput = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +28,8 @@ function Input(){
       challenge,
       createdAt: Date.now(),
       attachmentUrl,
-      hashTags
+      hashTags,
+      category : filter
     }
     await addDoc(collection(dbService, "challenges"),challengObj);
     setChallenge('');
@@ -59,9 +62,14 @@ function Input(){
   const handleHashTags = (val) => {
     setHashTags(val);
   }
+  const handleFilterClick = (filter) => {
+    setFilter(filter)
+    console.log(filter)
+  };
 
   return (
     <>
+      <CategoryButton filter={filter} handleFilterClick={handleFilterClick} />
       <form name='recruitment' onSubmit={onSubmit}>
         <div className='text-h3 text-gray mt-[26px]'>사진등록</div>
         <FileInput onChange={onFileChange} ref={fileInput}>
