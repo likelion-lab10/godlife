@@ -1,7 +1,11 @@
-import { CurrentChallengeCard } from '../components/index';
+import { CurrentChallengeContainer } from 'components';
 
 function Main() {
-  return <CurrentChallengeCard />;
+  return (
+    <div>
+      <CurrentChallengeContainer/>
+    </div>
+  );
 }
 
 export default Main;
