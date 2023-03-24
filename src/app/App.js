@@ -1,5 +1,6 @@
 import Recruitment from "pages/Recruit";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Certificate from "../pages/Certificate";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/dashboard" />
         <Route path="/filter" />
         <Route path="/search" />
-        <Route path="/certificate" />
+        <Route path="/certificate" element={<Certificate />} />
         <Route path="/participate" />
       </Routes>
     </BrowserRouter>
