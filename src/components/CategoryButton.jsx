@@ -1,13 +1,17 @@
 
+import { useState } from 'react';
 import CategoriesButton from './CategoriesButton';
 
 const CategoryButton = ({...restProps}) => {
   const {handleFilterClick} = restProps
   const filters = ["생활습관", "식습관", "취미", "환경"];
+  const [selectedFilter, setSelectedFilter] = useState("");
+  
+  const handleFilter = (filter) => {
+    setSelectedFilter(filter);
+    handleFilterClick(filter);
+  };
 
-  // const handleFilterClick = (filter) => {
-  //   handlerFilter(filter)
-  // };
 
   return (
     <div className="flex gap-1">
@@ -15,8 +19,8 @@ const CategoryButton = ({...restProps}) => {
         <CategoriesButton 
           key={filter}
           filter={filter}
-          selected={false}
-          handleFilterClick={handleFilterClick}
+          selected={filter === selectedFilter}
+          handleFilterClick={handleFilter}
         />
       ))}
     </div>
