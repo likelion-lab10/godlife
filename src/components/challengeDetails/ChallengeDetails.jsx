@@ -2,46 +2,86 @@ import tw from "tailwind-styled-components";
 import ChallengeDetailButton from "./ChallengeDetailButton";
 import uuid from "react-uuid";
 
-const ChallengeDetails = ({ datas }) => {
+const ChallengeDetails = ({ datas, userInput }) => {
   return (
     <>
       <AllChallengeTitle>전체 챌린지</AllChallengeTitle>
+      {userInput ? (
+        <ChallengeDetailsContainer>
+          {datas.filter((data) => {
+            console.log(data);
+            // eslint-disable-next-line no-unused-expressions
+            data.title === userInput;
+            return (
+              <ChallengeDetailContainer key={data.id}>
+                <ChallengeDetailImg src={data.image} alt="물 마시기" />
+                <div className="text-right">
+                  <h2 className="text-xl	">{data.title}</h2>
+                  {data.tags.map((tag) => {
+                    return (
+                      <ChallengeDetailTag
+                        key={uuid()}
+                      >{`# ${tag} `}</ChallengeDetailTag>
+                    );
+                  })}
 
-      <ChallengeDetailsContainer>
-        {datas.map((data) => {
-          return (
-            <ChallengeDetailContainer key={data.id}>
-              <ChallengeDetailImg src={data.image} alt="물 마시기" />
-              <div className="text-right">
-                <h2 className="text-xl	">{data.title}</h2>
-                {data.tags.map((tag) => {
-                  return (
-                    <ChallengeDetailTag
-                      key={uuid()}
-                    >{`# ${tag} `}</ChallengeDetailTag>
-                  );
-                })}
+                  <p>
+                    <ChallengeDetailDate dateTime={data.시작일}>
+                      {data.시작일}
+                    </ChallengeDetailDate>
+                    ~
+                    <ChallengeDetailDate dateTime={data.종료일}>
+                      {data.종료일}
+                    </ChallengeDetailDate>
+                  </p>
+                  <ChallengeDetailButton value="참여하기">
+                    참여하기
+                  </ChallengeDetailButton>
+                  <ChallengeDetailButton value="삭제하기">
+                    삭제하기
+                  </ChallengeDetailButton>
+                </div>
+              </ChallengeDetailContainer>
+            );
+          })}
+        </ChallengeDetailsContainer>
+      ) : (
+        <ChallengeDetailsContainer>
+          {datas.map((data) => {
+            return (
+              <ChallengeDetailContainer key={data.id}>
+                <ChallengeDetailImg src={data.image} alt="물 마시기" />
+                <div className="text-right">
+                  <h2 className="text-xl	">{data.title}</h2>
+                  {data.tags.map((tag) => {
+                    return (
+                      <ChallengeDetailTag
+                        key={uuid()}
+                      >{`# ${tag} `}</ChallengeDetailTag>
+                    );
+                  })}
 
-                <p>
-                  <ChallengeDetailDate dateTime={data.시작일}>
-                    {data.시작일}
-                  </ChallengeDetailDate>
-                  ~
-                  <ChallengeDetailDate dateTime={data.종료일}>
-                    {data.종료일}
-                  </ChallengeDetailDate>
-                </p>
-                <ChallengeDetailButton value="참여하기">
-                  참여하기
-                </ChallengeDetailButton>
-                <ChallengeDetailButton value="삭제하기">
-                  삭제하기
-                </ChallengeDetailButton>
-              </div>
-            </ChallengeDetailContainer>
-          );
-        })}
-      </ChallengeDetailsContainer>
+                  <p>
+                    <ChallengeDetailDate dateTime={data.시작일}>
+                      {data.시작일}
+                    </ChallengeDetailDate>
+                    ~
+                    <ChallengeDetailDate dateTime={data.종료일}>
+                      {data.종료일}
+                    </ChallengeDetailDate>
+                  </p>
+                  <ChallengeDetailButton value="참여하기">
+                    참여하기
+                  </ChallengeDetailButton>
+                  <ChallengeDetailButton value="삭제하기">
+                    삭제하기
+                  </ChallengeDetailButton>
+                </div>
+              </ChallengeDetailContainer>
+            );
+          })}
+        </ChallengeDetailsContainer>
+      )}
     </>
   );
 };

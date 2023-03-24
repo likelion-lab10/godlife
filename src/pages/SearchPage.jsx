@@ -4,6 +4,18 @@ import SearchHeader from "../components/header/SearchHeader";
 import ChallengeDetails from "../components/challengeDetails/ChallengeDetails";
 const SearchPage = () => {
   const [datas, setDatas] = useState([]);
+  const [userInput, setUserInput] = useState("");
+  // const [searchDatas, setSearchDatas] = useState([]);
+
+  const getValue = (e) => {
+    setUserInput(e.target.value.toLowerCase());
+  };
+
+  // const searched = searchDatas.filter((item) =>
+  //   item.name.toLowerCase().includes(userInput)
+  // );
+
+  console.log(userInput);
   useEffect(() => {
     axios
       .get("http://localhost:9000/challengeDetail")
@@ -11,8 +23,8 @@ const SearchPage = () => {
   }, []);
   return (
     <>
-      <SearchHeader />
-      <ChallengeDetails datas={datas} />
+      <SearchHeader getValue={getValue} />
+      <ChallengeDetails datas={datas} userInput={userInput} />
     </>
   );
 };
