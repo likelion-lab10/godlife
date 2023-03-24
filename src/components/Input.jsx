@@ -6,7 +6,7 @@ import { storageService } from '../fbase';
 import FileInput from './TextInput/FileInput';
 import CategoryButton from './CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
-import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
+import { getDownloadURL, ref, uploadBytes, uploadString } from "@firebase/storage";
 import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
 
 function Input(){
@@ -21,7 +21,7 @@ function Input(){
     let attachmentUrl = '';
     if(attachment !== ""){
       const attachmentRef = ref(storageService, `${uuid4()}`);
-      const response = await uploadBytes(attachmentRef, attachment, "data_url");
+      const response = await uploadString(attachmentRef, attachment, "data_url");
       attachmentUrl = await getDownloadURL(response.ref)
     } 
     const challengObj = {

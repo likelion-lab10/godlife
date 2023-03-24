@@ -2,8 +2,7 @@ import CertificateFileInput from './CertificateFileInput';
 import { useState, useRef } from 'react';
 import { dbService } from 'fbase';
 import { collection, addDoc } from 'firebase/firestore';
-import { ref } from '@firebase/storage';
-import { uploadBytes } from '@firebase/storage';
+import { ref, uploadString } from '@firebase/storage';
 import { getDownloadURL } from '@firebase/storage';
 import { v4 as uuid4 } from "uuid";
 import { storageService } from '../fbase';
@@ -17,7 +16,7 @@ function CertificateInput () {
     let attachmentUrl = '';
     if(attachment !== ""){
       const attachmentRef = ref(storageService, `${uuid4()}`);
-      const response = await uploadBytes(attachmentRef, attachment, "data_url");
+      const response = await uploadString(attachmentRef, attachment, "data_url");
       attachmentUrl = await getDownloadURL(response.ref)
     } 
     const challengObj = {
