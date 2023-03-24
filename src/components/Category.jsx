@@ -2,24 +2,37 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ChallengeFilter from './ChallengeFilter';
 import ChallengeList from './ChallengeList';
 import ChallengeCard from './ChallengeCard';
-import exampleData from '../data/exampleData';
+import { firestore as db, getStorageData } from '../fbase';
 
 // 상태값 관리
 function Category() {
-  const [challenges, setChallenges] = useState(exampleData);
+  const [challenges, setChallenges] = useState();
   const [selectedFilter, setSelectedFilter] = useState('');
   const [filteredChallenges, setFilteredChallenges] = useState([]);
 
   const filters = ['생활습관', '식습관', '취미', '환경'];
 
   // 콜백함수 사용 -> updateFilteredChallenges 함수 최적화
-  const updateFilteredChallenges = useCallback(() => {
-    const filteredChallenges = selectedFilter === ''
-      ? challenges
-      : challenges.filter(challenge => challenge.category === selectedFilter);
-    setFilteredChallenges(filteredChallenges);
-  }, [challenges, selectedFilter]);
+  const updateFilteredChallenges = useCallback(async () => {
+  const urls = await getStorageData();
+  const filteredChallenges = [];
 
+  // Firebase에서 데이터 가져오기
+  const snapshot = await db.collection('challenges').get();
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    // imageUrl 프로퍼티를 랜덤 URL로 설정
+    data.imageUrl = urls[Math.floor(Math.random() * urls.length)];
+    filteredChallenges.push(data);
+  });
+
+  setFilteredChallenges(selectedFilter === ''
+    ? filteredChallenges
+    : filteredChallenges.filter(challenge => challenge.category === selectedFilter));
+
+  setChallenges(filteredChallenges);
+  setFilteredChallenges(filteredChallenges);
+}, [selectedFilter]);
   // 필터링 된 도전과제 목록 업데이트
   useEffect(() => {
     updateFilteredChallenges();
