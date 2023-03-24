@@ -3,7 +3,7 @@ import { CurrentChallengeContainer } from 'components';
 function Main() {
   return (
     <div>
-      <CurrentChallengeContainer/>
+      <CurrentChallengeContainer />
     </div>
   );
 }

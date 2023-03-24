@@ -1,27 +1,41 @@
 import { CurrentChallengeCard } from 'components';
-import { doc, getDoc, onSnapshot } from 'firebase/firestore';
-import { db } from 'fbase';
-
-
-const docRef = doc(db, 'challenges2', '1')
-
-const docSnap = await getDoc(docRef);
-try {
-  if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
-  } else {
-    console.log("No such document!");
-  }
-} catch (error) {
-  console.log("Error getting document:", error);
-}
-
+import { collection, getDocs } from 'firebase/firestore';
+import { dbService as db } from 'fbase';
+import { useState, useEffect } from 'react';
 
 
 function CurrentChallengeContainer() {
+  const itemsCollectionRef = collection(db, 'challenges');
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(itemsCollectionRef);
+        const itemsData = querySnapshot.docs.map((doc) => doc.data());
+        setItems(itemsData);
+      } catch (error) {
+        console.log('Error getting documents: ', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className='w-[390px] bg-background px-[28px]'>
-      <CurrentChallengeCard/>
+    <div className='w-[390px] bg-background px-[28px] flex flex-wrap justify-between'>
+      {items.length > 0 ? (
+        items.map((list) => {
+          return (
+            <CurrentChallengeCard
+              src={list.attachmentUrl}
+              alt={list.challenge}
+              label={list.challenge}
+            />
+          );
+        })
+      ) : (
+        <p>Loading</p>
+      )}
     </div>
   );
 }
