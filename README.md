@@ -215,6 +215,12 @@ export default function RegisterPage() {
 ### 로그인
 추가 예정
 
+### 모집
+![Mar-24-2023 11-48-20](https://user-images.githubusercontent.com/114975279/227411639-d7f41d6c-c786-4022-9842-52826a442fc8.gif)
+![image](https://user-images.githubusercontent.com/114975279/227411717-22068d35-60e5-4b58-b057-e60616a68f05.png)
+![image](https://user-images.githubusercontent.com/114975279/227411855-14dbdfa1-b046-4d86-824d-511481fd013d.png)
+
+
 ### 인증
 추가 예정
 
