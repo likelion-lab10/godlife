@@ -7,7 +7,7 @@ function ChallengeList(props) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 mb-8">
       {challenges && challenges.map(challenge => (
-        <div className="p-2" key={challenge.id}>
+        <div className="p-2" key={`challenge-${challenge.createdAt}`}>
           <ChallengeCard challenge={challenge} />
         </div>
       ))}

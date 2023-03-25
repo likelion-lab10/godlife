@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Category from '../components/Category';
 import Filter from '../pages/filter';
 import ChallengeList from '../components/ChallengeList';
-import exampleData from '../data/exampleData';
 
 function Challenge() {
   const { id } = useParams();

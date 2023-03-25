@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/storage';
+import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 
-// const firebaseConfig = {
-//   // Firebase 설정
-// };
-
-// firebase.initializeApp(firebaseConfig);
 
 // 마우스 오버 이벤트
 const ChallengeCard = ({ challenge }) => {
@@ -25,13 +19,17 @@ const ChallengeCard = ({ challenge }) => {
   const boxShadow = isHovered ? 'shadow-md' : 'shadow-lg';
 
   React.useEffect(() => {
-    if (challenge) {
-      const storageRef = firebase.storage().ref(challenge.imagePath);
-      storageRef.getDownloadURL().then((url) => {
-        setImageUrl(url);
-      });
-    }
-  }, [challenge]);
+    const storage = getStorage();
+    const storageRef = ref(storage, 'images');
+    const getStorageData = async () => {
+      const storageList = await listAll(storageRef);
+      const urls = await Promise.all(
+        storageList.items.map((item) => item.getDownloadURL())
+      );
+      setImageUrl(urls[0] || '');
+    };
+    getStorageData();
+  }, []);
 
   return (
     <div className="w-full w-1/2 mb-4">

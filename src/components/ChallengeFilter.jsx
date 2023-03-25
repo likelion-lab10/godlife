@@ -21,16 +21,20 @@ const ChallengeFilter = ({ filters, selectedFilter, setSelectedFilter }) => {
     }
   };
 
+  if (!filters) {
+    return null; // or render a loading spinner or a message that there are no filters
+  }
+
   return (
     <div className="flex flex-wrap items-center justify-center w-full py-6 space-x-4">
       {filters.map((filter, index) => (
         <FilterButton
-        key={index}
-        filter={filter}
-        selected={selectedFilter === filter}
-        handleFilterClick={handleFilterClick}
-        icon={iconPaths[filter]}      
-      />
+          key={index}
+          filter={filter}
+          selected={selectedFilter === filter}
+          handleFilterClick={handleFilterClick}
+          icon={iconPaths[filter]}
+        />
       ))}
     </div>
   );
