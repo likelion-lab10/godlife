@@ -16,7 +16,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <div className='absolute bottom-0 left-[50%] -translate-x-1/2'>
+    <div className='fixed bottom-0 left-[50%] -translate-x-1/2'>
       <ul className='h-[68px] w-[390px] flex justify-around items-center space-around border-t'>
         {
           link.map((list) => {
