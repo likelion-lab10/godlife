@@ -1,8 +1,22 @@
+import Recruitment from "pages/Recruit";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Certificate from "../pages/Certificate";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" />
+        <Route path="/login" />
+        <Route path="/recruit" element={<Recruitment />} />
+        <Route path="/register" />
+        <Route path="/dashboard" />
+        <Route path="/filter" />
+        <Route path="/search" />
+        <Route path="/certificate" element={<Certificate />} />
+        <Route path="/participate" />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
