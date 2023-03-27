@@ -6,7 +6,7 @@ import { ref, uploadString } from '@firebase/storage';
 import { getDownloadURL } from '@firebase/storage';
 import { v4 as uuid4 } from "uuid";
 import { storageService } from '../fbase';
-import CertificateSubmitButton from './SubmitButton/CertificateSubmitButton';
+import CertificateSubmitButton from './CertificateSubmitButton';
 
 function CertificateInput () {
   const [attachment, setAttatchment] = useState("");
