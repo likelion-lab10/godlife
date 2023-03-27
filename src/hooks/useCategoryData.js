@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { firestore } from '../fbase'; 
 import { getStorage } from "firebase/storage"
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 
 export default function useCategoryData() {
@@ -24,13 +25,14 @@ export default function useCategoryData() {
   useEffect(() => {
     const getCategoryData = async () => {
       try {
-        const querySnapshot = await firestore.collection('challenges').get(); 
+        const db = getFirestore();
+        const querySnapshot = await getDocs(collection(db, 'challenges')); 
         const categories = querySnapshot.docs
           .map((doc) => doc.data().category)
           .filter((category, index, self) => self.indexOf(category) === index);
         setCategories(categories);
       } catch (error) {
-
+    
       }
     };
 
