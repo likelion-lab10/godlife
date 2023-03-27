@@ -8,7 +8,7 @@ import CategoryButton from './CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import ChallengeSubmitButton from './challenge/ChallengeSubmitButton';
-import Moment from 'react-moment';
+import { toast, ToastContainer } from "react-toastify"
 
 function Input(){
   const [challenge, setChallenge] = useState("");
