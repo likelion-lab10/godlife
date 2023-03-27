@@ -1,9 +1,10 @@
-import { CurrentChallengeContainer } from 'components';
+import { CurrentChallengeContainer, Navbar } from 'components';
 
 function Main() {
   return (
     <div>
       <CurrentChallengeContainer />
+      <Navbar />
     </div>
   );
 }
