@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { firestore } from '../fbase'; 
 import { getStorage } from "firebase/storage"
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 
 export default function useCategoryData() {
@@ -13,13 +13,14 @@ export default function useCategoryData() {
     const storage = getStorage();
     const storageRef = ref(storage, 'images');
     const storageList = await listAll(storageRef);
+    
     const urls = await Promise.all(
       storageList.items.map(async (item) => {
         const url = await getDownloadURL(item);
         return url;
       })
     );
-    setImageUrls(urls);
+       setImageUrls(urls);
   };
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function useCategoryData() {
           .filter((category, index, self) => self.indexOf(category) === index);
         setCategories(categories);
       } catch (error) {
-    
+        
       }
     };
 

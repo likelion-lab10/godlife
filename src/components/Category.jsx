@@ -4,7 +4,7 @@ import ChallengeList from './ChallengeList';
 import ChallengeCard from './ChallengeCard';
 import useCategoryData from '../hooks/useCategoryData';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { app, firestore, storage } from '../fbase'; 
+
 
 function Category() {
   const [selectedFilter, setSelectedFilter] = useState('');
@@ -17,7 +17,7 @@ function Category() {
   const updateFilteredChallenges = useCallback(async (urls) => {
     const filteredChallenges = [];
   
-    const querySnapshot = await getDocs(collection(firestore, 'challenges'));
+    const querySnapshot = await getDocs(collection(getFirestore(), 'challenges'));
     querySnapshot.forEach((doc) => {
       const data = doc.data();
       if (urls && urls.length > 0) {
@@ -34,13 +34,6 @@ function Category() {
           )
     );
   }, [selectedFilter]);
-
-  useEffect(() => {
-    getStorageData().then((data) => {
-      setUrls(data);
-      updateFilteredChallenges(data);
-    });
-  }, [getStorageData, updateFilteredChallenges]);
 
   useEffect(() => {
     updateFilteredChallenges(urls);

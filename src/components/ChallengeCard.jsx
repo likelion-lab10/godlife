@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 
-
 // 마우스 오버 이벤트
 const ChallengeCard = ({ challenge }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -42,13 +41,13 @@ const ChallengeCard = ({ challenge }) => {
           <div className="h-40 overflow-hidden">
             <img
               className="h-40 w-80 object-cover rounded-t-2xl"
-              src={imageUrl}
-              alt={challenge.title}
+              src={challenge.attachmentUrl}
+              alt={challenge.challenge}
               style={{ objectFit: 'cover' }}
             />
           </div>
           <div className="px-1 py-2">
-            <h2 className="font-medium text-sm text-center">{challenge.title}</h2>
+            <h2 className="font-medium text-sm text-center">{challenge.challenge}</h2>
           </div>
         </div>
       </Link>

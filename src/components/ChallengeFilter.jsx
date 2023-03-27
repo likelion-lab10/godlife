@@ -22,7 +22,7 @@ const ChallengeFilter = ({ filters, selectedFilter, setSelectedFilter }) => {
   };
 
   if (!filters) {
-    return null; // or render a loading spinner or a message that there are no filters
+    return null; 
   }
 
   return (
