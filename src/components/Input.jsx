@@ -8,6 +8,7 @@ import CategoryButton from './CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import ChallengeSubmitButton from './challenge/ChallengeSubmitButton';
+import Swal from 'sweetalert2'
 
 function Input(){
   const [challenge, setChallenge] = useState("");
@@ -35,6 +36,12 @@ function Input(){
     setChallenge('');
     setAttatchment("");
     setHashTags([]);
+
+    await Swal.fire({
+      icon: 'success',
+      title: '완료하였습니다!',
+    })
+    
 
   }
   const onChange = (e) => {

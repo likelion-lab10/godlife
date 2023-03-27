@@ -7,6 +7,7 @@ import { getDownloadURL } from '@firebase/storage';
 import { v4 as uuid4 } from "uuid";
 import { storageService } from '../../fbase';
 import CertificateSubmitButton from './CertificateSubmitButton';
+import Swal from 'sweetalert2'
 
 function CertificateInput () {
   const [attachment, setAttatchment] = useState("");
@@ -25,6 +26,11 @@ function CertificateInput () {
     }
     await addDoc(collection(dbService, "certificates"),challengObj);
     setAttatchment("");
+
+    await Swal.fire({
+      icon: 'success',
+      title: '완료하였습니다!',
+    })
   }
 
 
