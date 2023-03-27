@@ -8,8 +8,6 @@ import CategoryButton from './CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import ChallengeSubmitButton from './challenge/ChallengeSubmitButton';
-import { toast, ToastContainer } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css'
 
 function Input(){
   const [challenge, setChallenge] = useState("");
@@ -38,13 +36,6 @@ function Input(){
     setAttatchment("");
     setHashTags([]);
 
-    await toast.promise(
-      fetch("http://localhost:3000/recruit"),
-      {
-        success: '모집글 작성이 완료되었습니다.',
-        error: '죄송합니다. 다시 작성해주세요.'
-      }
-  );
   }
   const onChange = (e) => {
     const {
@@ -89,11 +80,6 @@ function Input(){
         <div className='mt-[47px] mb-[10px] text-gray'>태그</div>
         <Tag ref={fileInput} inputHashTag={inputHashTag} handleInputHashTag={handleInputHashTag} hashTags={hashTags} handleHashTags={handleHashTags}/>
         <ChallengeSubmitButton type='submit'>완료</ChallengeSubmitButton>
-        <ToastContainer 
-        limit={1}
-        autoClose={3000}
-        hideProgressBar
-        />
       </form>
     </>
   )
