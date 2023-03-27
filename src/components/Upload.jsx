@@ -1,6 +1,6 @@
 import Input from './Input';
 import Introduce from './Introduce';
-import Container from './Container';
+import Container from './container/Container';
 import PageTitle from './PageTitle/PageTitle';
 import BackButton from './BackButton/BackButton';
 function Upload(){

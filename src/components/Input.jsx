@@ -3,11 +3,11 @@ import Tag from './Tag';
 import { v4 as uuid4 } from "uuid";
 import { useRef, useState } from 'react';
 import { storageService } from '../fbase';
-import FileInput from './FileInput';
-import CategoryButton from './CategoryButton';
+import FileInput from './fileinput/FileInput';
+import CategoryButton from './Category/CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
-import ChallengeSubmitButton from './ChallengeSubmitButton';
+import ChallengeSubmitButton from './challenge/ChallengeSubmitButton';
 
 function Input(){
   const [challenge, setChallenge] = useState("");

@@ -1,7 +1,7 @@
-import Container from '../components/Container';
+import Container from '../components/container/Container';
 import BackButton from '../components/BackButton/BackButton';
 import PageTitle from '../components/PageTitle/PageTitle';
-import CertificateInput from 'components/CertificateInput';
+import CertificateInput from 'components/Certificate/CertificateInput';
 
 function Certificate () {
   return (
