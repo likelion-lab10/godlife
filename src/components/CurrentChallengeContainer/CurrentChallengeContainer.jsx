@@ -12,7 +12,7 @@ function CurrentChallengeContainer() {
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(itemsCollectionRef);
-        const itemsData = querySnapshot.docs.map((doc) => doc.data());
+        const itemsData = querySnapshot.docs.map((doc) => ({...doc.data(),id: doc.id}));
         setItems(itemsData);
       } catch (error) {
         console.log('Error getting documents: ', error);
@@ -27,6 +27,7 @@ function CurrentChallengeContainer() {
         items.map((list) => {
           return (
             <CurrentChallengeCard
+              key={list.id}
               src={list.attachmentUrl}
               alt={list.challenge}
               label={list.challenge}
