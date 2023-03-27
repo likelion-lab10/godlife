@@ -39,8 +39,9 @@ export default function KakaoLogin() {
           url: '/v2/user/me',
         })
           .then((response) => {
-            const {kakao_account} = response;
-            console.log(response.id, kakao_account.email);
+            // const {kakao_account} = response;
+            console.log(response);
+            console.log(res.access_token);
           })
           .catch((error) => {
             console.log(error);
