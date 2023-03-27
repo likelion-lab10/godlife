@@ -7,6 +7,8 @@ import { getDownloadURL } from '@firebase/storage';
 import { v4 as uuid4 } from "uuid";
 import { storageService } from '../../fbase';
 import CertificateSubmitButton from './CertificateSubmitButton';
+import { toast, ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 
 function CertificateInput () {
   const [attachment, setAttatchment] = useState("");
@@ -25,6 +27,14 @@ function CertificateInput () {
     }
     await addDoc(collection(dbService, "certificates"),challengObj);
     setAttatchment("");
+
+    await toast.promise(
+      fetch("http://localhost:3000/certificate"),
+      {
+        success: '인증되었습니다.',
+        error: '죄송합니다. 다시 작성해주세요.'
+      }
+  );
   }
 
 
@@ -49,6 +59,7 @@ function CertificateInput () {
         {attachment && <img className='-indent-[9999px] block m-auto w-full h-full object-cover' src={attachment} alt="이미지"/>}  
       </CertificateFileInput>  
       <CertificateSubmitButton type="submit">인증하기</CertificateSubmitButton>
+      <ToastContainer />
     </form>
   )
 }
