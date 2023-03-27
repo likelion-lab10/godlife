@@ -6,7 +6,7 @@ import { storageService } from '../fbase';
 import FileInput from './TextInput/FileInput';
 import CategoryButton from './CategoryButton';
 import { addDoc, collection } from 'firebase/firestore';
-import { getDownloadURL, ref, uploadBytes, uploadString } from "@firebase/storage";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import ChallengeSubmitButton from './SubmitButton/ChallengeSubmitButton';
 
 function Input(){
