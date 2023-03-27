@@ -26,7 +26,7 @@ function Input(){
     } 
     const challengObj = {
       challenge,
-      createdAt,
+      createdAt: Date.now(),
       attachmentUrl,
       hashTags,
       category : filter
