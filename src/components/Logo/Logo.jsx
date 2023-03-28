@@ -1,11 +1,7 @@
 import logo from '../../assets/godlifeLogo.svg';
 
 function Logo() {
-  return (
-    <div>
-      <img src={logo} className='ml-[28px] mt-[55px] mb-[34px]' />
-    </div>
-  );
+  return <img src={logo} className='ml-[28px] mt-[80px] mb-[34px]' />;
 }
 
 export default Logo;
