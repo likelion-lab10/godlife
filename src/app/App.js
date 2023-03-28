@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "pages/LoginPage";
 import RegisterPage from "pages/RegisterPage";
 import Main from "../pages/Main";
@@ -8,7 +8,7 @@ import Filter from "pages/filter";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<LoginPage />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/certificate" element={<Certificate />} />
         {/* <Route path="/participate" element={ } /> */}
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
