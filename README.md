@@ -46,14 +46,34 @@
 
 ## 구현 기능
 
-### 기능 1 
-추가 예정
+### 로그인
 
-### 기능 2
-추가 예정
+![이메일 로그인](https://user-images.githubusercontent.com/114975279/228237155-999d2641-98c1-47de-86be-10a49bad7d9c.gif)
 
-### 기능 3
-추가 예정
+### 소셜 로그인
+
+![소셜로그인](https://user-images.githubusercontent.com/114975279/228237204-74da945c-21f4-4db6-8756-2a68c0d9f9f4.gif)
+
+### 회원가입
+
+![회원가입](https://user-images.githubusercontent.com/114975279/228237263-af90d8b0-83b4-43c9-babb-5a909d800c86.gif)
+
+### 챌린지 생성
+
+![Mar-28-2023 14-01-19](https://user-images.githubusercontent.com/114975279/228237536-2c6d6b41-5ebb-4fc5-beb7-0b04621fe519.gif)
+
+### 챌린지 인증
+
+![Mar-28-2023 14-01-53](https://user-images.githubusercontent.com/114975279/228237767-6c2a2b4f-77e6-4787-bea6-535736a5fd6c.gif)
+
+### 메인 페이지
+
+![메인페이지](https://user-images.githubusercontent.com/114975279/228237872-8e14f6f7-9a7b-4bda-8b8b-5b545c17e0b7.gif)
+
+### 필터
+
+![필터](https://user-images.githubusercontent.com/114975279/228237914-17535904-65c2-4805-9f4f-49f4e94e1fb6.gif)
+
 
 
 <br>
