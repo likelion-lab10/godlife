@@ -21,12 +21,12 @@ import { getStorage } from "firebase/storage";
 // };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCByWwf9Vi4WEzosFTOFYflDvcPUbPN3qw",
-  authDomain: "test2-172a6.firebaseapp.com",
-  projectId: "test2-172a6",
-  storageBucket: "test2-172a6.appspot.com",
-  messagingSenderId: "1045566994261",
-  appId: "1:1045566994261:web:b51718b913bb76c04fa1dc"
+  apiKey: "AIzaSyAwdtVK3P5fIZCd-ZvKlYS_H9oQyLPZjlg",
+  authDomain: "test6-59dbb.firebaseapp.com",
+  projectId: "test6-59dbb",
+  storageBucket: "test6-59dbb.appspot.com",
+  messagingSenderId: "138389934575",
+  appId: "1:138389934575:web:8b73fcc9bcb103fc6a661a"
 };
 
 

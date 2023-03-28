@@ -37,7 +37,7 @@ function Category() {
 
   useEffect(() => {
     updateFilteredChallenges(urls);
-  }, [selectedFilter, urls, updateFilteredChallenges]);
+  }, [updateFilteredChallenges, urls]);
 
   return (
     <section className="min-h-screen px-6 py-20 bg-background">
