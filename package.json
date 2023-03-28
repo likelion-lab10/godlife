@@ -1,4 +1,5 @@
 {
+  "homepage": "https://likelion-lab10.github.io/godlife/",
   "name": "godlife-react",
   "version": "0.1.0",
   "private": true,
@@ -25,7 +26,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://likelion-lab10.github.io/godlife/",
   "eslintConfig": {
     "extends": [
       "react-app",
