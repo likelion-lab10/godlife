@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/godlife/static/css/main.1db6a58a.css",
-    "main.js": "/godlife/static/js/main.2b05638d.js",
+    "main.js": "/godlife/static/js/main.5efea69e.js",
     "static/media/kakao.png": "/godlife/static/media/kakao.5b2fcee6648a3decebd9.png",
     "static/media/challenge.svg": "/godlife/static/media/challenge.004fd2d6c6460841c5e39c3674b351b5.svg",
     "static/media/facebook.png": "/godlife/static/media/facebook.8d51a55626e9bf107f8f.png",
@@ -20,10 +20,10 @@
     "static/media/plus.svg": "/godlife/static/media/plus.f754d766674375780b679d03f168cf2c.svg",
     "static/media/backArrow.svg": "/godlife/static/media/backArrow.9c7ff8568a380a751cf69ef8a0ce981d.svg",
     "main.1db6a58a.css.map": "/godlife/static/css/main.1db6a58a.css.map",
-    "main.2b05638d.js.map": "/godlife/static/js/main.2b05638d.js.map"
+    "main.5efea69e.js.map": "/godlife/static/js/main.5efea69e.js.map"
   },
   "entrypoints": [
     "static/css/main.1db6a58a.css",
-    "static/js/main.2b05638d.js"
+    "static/js/main.5efea69e.js"
   ]
 }
