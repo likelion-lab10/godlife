@@ -1,34 +1,24 @@
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
-import Category from '../components/Category';
-import Filter from '../pages/filter';
-import ChallengeList from '../components/ChallengeList';
-
-function Challenge() {
-  const { id } = useParams();
-  
-  return <div>Challenge {id}</div>;
-}
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "pages/LoginPage";
+import RegisterPage from "pages/RegisterPage";
+import Main from "../pages/Main";
+import Recruitment from "pages/Recruit";
+import Certificate from "../pages/Certificate";
 
 function App() {
-  // const basename = `/category`;
-  
-
   return (
     <BrowserRouter>
-      <div>
-        <Routes>
-          <Route path="/" element={<Filter />} />
-          <Route path=":id" element={<Challenge />} />
-          {/* <Route path="/login" element={ } />
-          <Route path="/recruit" element={ } />
-          <Route path="/register" element={ } />
-          <Route path="/dashboard" element={ } />
-          <Route path="/filter" element={ } />
-          <Route path="/search" element={ } />
-          <Route path="/certificate" element={ } />
-          <Route path="/participate" element={ } /> */}
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/recruit" element={<Recruitment />} />
+        <Route path="/register" element={<RegisterPage />} />
+        {/* <Route path="/dashboard" element={ } /> */}
+        {/* <Route path="/filter" element={ } /> */}
+        {/* <Route path="/search" element={ } /> */}
+        <Route path="/certificate" element={<Certificate />} />
+        {/* <Route path="/participate" element={ } /> */}
+      </Routes>
     </BrowserRouter>
   );
 }
