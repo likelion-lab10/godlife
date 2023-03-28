@@ -8,7 +8,7 @@ const link = [
   { icon: <MainIcon />, link: '/main', key: 'main' },
   { icon: <CommunityIcon />, link: '/community', key: 'community' },
   { icon: <ParticipateIcon />, link: '/participate', key: 'participate' },
-  { icon: <ProfileIcon />, link: '/profile', key: 'profile' },
+  { icon: <ProfileIcon />, link: '/login', key: 'login' },
 ];
 
 function Navbar() {
