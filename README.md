@@ -1,7 +1,7 @@
 <br>
 <br>
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:E3DEDC,100:C3A6A0&height=180&section=header&text=God%20Life%20&fontSize=90&)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:8a8a8a,100:0c2340&height=180&section=header&text=God%20Life%20&fontSize=90&)
 
 <br>
 
@@ -16,7 +16,7 @@
 
 <p align="center">
   <br>
-  <img src="https://user-images.githubusercontent.com/77651050/223636764-2aef2ccc-7ef9-4264-8d49-000254134314.jpg">
+  <img src="https://user-images.githubusercontent.com/77651050/228217381-c140f2a0-ee91-41da-997d-4f67fcb2970d.jpg">
   <br>
 </p>
 
