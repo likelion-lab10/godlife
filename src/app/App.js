@@ -4,6 +4,7 @@ import RegisterPage from "pages/RegisterPage";
 import Main from "../pages/Main";
 import Recruitment from "pages/Recruit";
 import Certificate from "../pages/Certificate";
+import Filter from "pages/filter";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/recruit" element={<Recruitment />} />
         <Route path="/register" element={<RegisterPage />} />
         {/* <Route path="/dashboard" element={ } /> */}
-        {/* <Route path="/filter" element={ } /> */}
+        <Route path="/filter" element={<Filter />} />
         {/* <Route path="/search" element={ } /> */}
         <Route path="/certificate" element={<Certificate />} />
         {/* <Route path="/participate" element={ } /> */}
