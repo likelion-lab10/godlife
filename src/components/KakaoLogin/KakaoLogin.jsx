@@ -65,7 +65,7 @@ function KakaoLogin() {
 
   return (
     <SubmitButton type="button" name="social" onClick={kakaoLoginHandler}>
-      <img className="mr-2 w-6 h-6" src={require('../assets/kakao.png')} alt='카카오톡 로그인'/>
+      <img className="mr-2 w-6 h-6" src={require('../../assets/kakao.png')} alt='카카오톡 로그인'/>
       카카오로 시작하기
     </SubmitButton>
   )
