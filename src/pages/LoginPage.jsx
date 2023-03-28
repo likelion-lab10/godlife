@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSignIn, useAuthState } from 'fbase/auth';
 import { ReactComponent as Loading } from 'assets/loading.svg';
-import { PageTitle, SubmitButton, TextInput, GoogleLogin, FacebookLogin } from "components";
+import { PageTitle, SubmitButton, TextInput, GoogleLogin, FacebookLogin, KakaoLogin } from "components";
 
 const initialFormState = {
   email: '',
@@ -57,10 +57,7 @@ function LoginPage() {
       </form>
       <Link className="absolute mt-4 text-gray border-b left-1/2 -translate-x-1/2" to='/register'>회원가입</Link>
       <div className="flex flex-col justify-center items-center gap-6 mt-40">
-        <SubmitButton type="button" name="social">
-          <img className="mr-2 w-6 h-6" src={require('../assets/kakao.png')} alt="카카오톡 아이콘" />
-          카카오로 시작하기
-        </SubmitButton>
+        <KakaoLogin />
         <GoogleLogin onError={setErrorMessage} />
         <FacebookLogin onError={setErrorMessage} />
       </div>

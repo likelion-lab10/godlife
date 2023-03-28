@@ -5,6 +5,7 @@ export { default as PageSecondTitle } from './PageSecondTitle/PageSecondTitle';
 export { default as BackButton } from './BackButton/BackButton';
 export { default as GoogleLogin } from './GoogleLogin/GoogleLogin';
 export { default as SubmitButton } from './SubmitButton/SubmitButton';
+export { default as KakaoLogin } from './KakaoLogin/KakaoLogin';
 export { default as FacebookLogin } from './FacebookLogin/FacebookLogin';
 export { default as CreateChallengeButton } from './CreateChallengeButton/CreateChallengeButton';
 export { default as CurrentChallengeCard } from './CurrentChallengeCard/CurrentChallengeCard'
