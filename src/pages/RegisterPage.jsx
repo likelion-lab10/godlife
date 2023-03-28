@@ -4,6 +4,7 @@ import { useSignUp } from 'fbase/auth';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCreateAuthUser } from 'fbase/firestore';
+import { ReactComponent as Loading } from '../assets/loading.svg';
 import { BackButton, PageTitle, SubmitButton, TextInput } from 'components';
 
 const initialFormState = {
@@ -64,7 +65,7 @@ function RegisterPage() {
   if (isLoading) {
     return (
       <div role='alert' className='flex justify-center items-center h-screen'>
-        <img src="assets/loading.svg" alt="로딩중" />
+        <Loading />
       </div>
     )
   }
