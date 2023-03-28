@@ -81,21 +81,21 @@
 ## 사용 예제
 
 스크린 샷과 코드 예제를 통해 사용 방법을 자세히 설명합니다.
-1. 로그인 창에서 로그인을 진행합니다 
-![image](https://user-images.githubusercontent.com/114975279/228247900-ba774a85-4c99-478b-9f53-efcc42706df1.png)
-1-1. 만약 아이디가 없다면 회원가입을 진행합니다.
-![image](https://user-images.githubusercontent.com/114975279/228248112-b428058a-9f6e-44a8-b8f3-e7c4b9d9a56e.png)
-이름 : 2자 이상
-닉네임 : 2자 이상
-비밀번호 : 10자 이상
-1-2. 소셜 로그인으로 로그인 하셔도 됩니다.(카카오, 구글, 페이스북)
-2. 메인페이지에서 현재 모집중인 페이지를 한눈에 발견하세요.
-![image](https://user-images.githubusercontent.com/114975279/228248666-7db1da52-f6e2-4c4e-a8ec-18642a448d22.png)
-3. 메인페이지 우측 상단에 + 버튼을 누르면 챌린지를 개설할 수 있습니다.
-![image](https://user-images.githubusercontent.com/114975279/228248905-a2d18204-6fad-41c7-b11e-2cf09223f9ee.png)
-카테고리, 사진, 제목, 해쉬태그를 이용하여 간단한 본인만의 챌린지를 만들어보세요.
-4. 메인 페이지 카테고리를 누르면 카테고리 별로 모집중인 챌린지를 확인할 수 있습니다.
-![image](https://user-images.githubusercontent.com/114975279/228249456-11e4b7dc-6659-49dd-b320-55fb58eaffc7.png)
+1. 로그인 창에서 로그인을 진행합니다 <br />
+![image](https://user-images.githubusercontent.com/114975279/228247900-ba774a85-4c99-478b-9f53-efcc42706df1.png) <br />
+1-1. 만약 아이디가 없다면 회원가입을 진행합니다.<br />
+![image](https://user-images.githubusercontent.com/114975279/228248112-b428058a-9f6e-44a8-b8f3-e7c4b9d9a56e.png) <br />
+이름 : 2자 이상 <br />
+닉네임 : 2자 이상 <br />
+비밀번호 : 10자 이상 <br />
+1-2. 소셜 로그인으로 로그인 하셔도 됩니다.(카카오, 구글, 페이스북) <br />
+2. 메인페이지에서 현재 모집중인 페이지를 한눈에 발견하세요. <br />
+![image](https://user-images.githubusercontent.com/114975279/228248666-7db1da52-f6e2-4c4e-a8ec-18642a448d22.png) <br />
+3. 메인페이지 우측 상단에 + 버튼을 누르면 챌린지를 개설할 수 있습니다. <br />
+![image](https://user-images.githubusercontent.com/114975279/228248905-a2d18204-6fad-41c7-b11e-2cf09223f9ee.png) <br />
+카테고리, 사진, 제목, 해쉬태그를 이용하여 간단한 본인만의 챌린지를 만들어보세요. <br />
+4. 메인 페이지 카테고리를 누르면 카테고리 별로 모집중인 챌린지를 확인할 수 있습니다. <br />
+![image](https://user-images.githubusercontent.com/114975279/228249456-11e4b7dc-6659-49dd-b320-55fb58eaffc7.png) <br />
 
 
 _더 많은 예제와 사용법은 [Wiki][wiki]를 참고하세요._
@@ -107,9 +107,19 @@ _더 많은 예제와 사용법은 [Wiki][wiki]를 참고하세요._
 <!--모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.-->
 
 ```sh
-npm start
-npm test
-npm run build
+npm i
+```
+```sh
+npm i uuid
+```
+```sh
+npm install sweetalert2
+```
+```sh
+npm install firebase
+```
+```
+npm install tailwind
 ```
 
 ## 업데이트 내역
