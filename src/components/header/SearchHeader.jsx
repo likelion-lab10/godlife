@@ -2,11 +2,11 @@ import tw from "tailwind-styled-components";
 import BackButton from "../BackButton";
 import SearchForm from "../search/SearchForm";
 
-const SearchHeader = ({ getValue }) => {
+const SearchHeader = ({ setUserInput }) => {
   return (
     <SearchHeaderForm>
       <BackButton />
-      <SearchForm getValue={getValue} />
+      <SearchForm setUserInput={setUserInput} />
     </SearchHeaderForm>
   );
 };

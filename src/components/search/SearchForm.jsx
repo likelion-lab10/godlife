@@ -1,7 +1,11 @@
 import tw from "tailwind-styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useState } from "react";
 
-const SearchForm = ({ getValue }) => {
+const SearchForm = ({ setUserInput }) => {
+  // const [searchValue, setSearchVale] = useState("");
+  // console.log(searchValue);
+
   return (
     <>
       <SearchInputForm>
@@ -9,7 +13,7 @@ const SearchForm = ({ getValue }) => {
           type="search"
           name="q"
           placeholder="검색"
-          onChange={getValue}
+          onChange={(e) => setUserInput(e.target.value)}
         />
         <AiOutlineSearch className="fill-gray-400	absolute top-1.5 left-3" />
       </SearchInputForm>

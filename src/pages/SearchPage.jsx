@@ -15,15 +15,15 @@ const SearchPage = () => {
   //   item.name.toLowerCase().includes(userInput)
   // );
 
-  console.log(userInput);
   useEffect(() => {
     axios
       .get("http://localhost:9000/challengeDetail")
       .then((res) => setDatas(res.data));
   }, []);
+
   return (
     <>
-      <SearchHeader getValue={getValue} />
+      <SearchHeader setUserInput={setUserInput} />
       <ChallengeDetails datas={datas} userInput={userInput} />
     </>
   );
