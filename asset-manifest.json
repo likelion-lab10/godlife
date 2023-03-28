@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/godlife/static/css/main.1db6a58a.css",
-    "main.js": "/godlife/static/js/main.95c3c45c.js",
+    "main.js": "/godlife/static/js/main.f3f43613.js",
     "static/media/kakao.png": "/godlife/static/media/kakao.5b2fcee6648a3decebd9.png",
     "static/media/challenge.svg": "/godlife/static/media/challenge.004fd2d6c6460841c5e39c3674b351b5.svg",
     "static/media/facebook.png": "/godlife/static/media/facebook.8d51a55626e9bf107f8f.png",
@@ -16,14 +16,14 @@
     "static/media/food.svg": "/godlife/static/media/food.8cd00f0524a018212658118f89b86b05.svg",
     "static/media/environment.svg": "/godlife/static/media/environment.221ed56fa5fd75d2c0115966d40e06ea.svg",
     "static/media/calendar.svg": "/godlife/static/media/calendar.016d8dfbbd1c3603d52f6b0385dce9c4.svg",
-    "static/media/loading.svg": "/godlife/static/media/loading.c456323bf1e8d25e5ce3d7cf480b3659.svg",
+    "static/media/loading.svg": "/godlife/static/media/loading.850e65e5c2bc5f1be76191c0d2271b57.svg",
     "static/media/plus.svg": "/godlife/static/media/plus.f754d766674375780b679d03f168cf2c.svg",
     "static/media/backArrow.svg": "/godlife/static/media/backArrow.9c7ff8568a380a751cf69ef8a0ce981d.svg",
     "main.1db6a58a.css.map": "/godlife/static/css/main.1db6a58a.css.map",
-    "main.95c3c45c.js.map": "/godlife/static/js/main.95c3c45c.js.map"
+    "main.f3f43613.js.map": "/godlife/static/js/main.f3f43613.js.map"
   },
   "entrypoints": [
     "static/css/main.1db6a58a.css",
-    "static/js/main.95c3c45c.js"
+    "static/js/main.f3f43613.js"
   ]
 }
