@@ -1,8 +1,14 @@
-import { SubmitButton } from 'components';
+import { auth } from 'fbase/auth';
 import { useEffect } from 'react';
+import { SubmitButton } from 'components';
+import { useNavigate } from 'react-router-dom';
+import { useCreateAuthUser } from 'fbase/firestore';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
-export default function KakaoLogin() {
+function KakaoLogin() {
   const { Kakao, location } = window;
+  const { createAuthUser } = useCreateAuthUser();
+  const navigate = useNavigate();
 
   if(!Kakao.isInitialized()) {
     Kakao.init(process.env.REACT_APP_KAKAO_REST_API_KEY);
@@ -33,26 +39,22 @@ export default function KakaoLogin() {
           },
           body: queryStringBody,
         })
-        const res = await response.json();
-        Kakao.Auth.setAccessToken(res.access_token);
-        Kakao.API.request({
-          url: '/v2/user/me',
-        })
-          .then((response) => {
-            // const {kakao_account} = response;
-            console.log(response);
-            console.log(res.access_token);
-          })
-          .catch((error) => {
-            console.log(error);
-          })
+        const kakaoTokenRes = await response.json();
+        Kakao.Auth.setAccessToken(kakaoTokenRes.access_token);
+        const kakaoUserRes = await Kakao.API.request({ url: '/v2/user/me' });
+        const { email, profile } = kakaoUserRes.kakao_account;
+        try {
+          await signInWithEmailAndPassword(auth, email, kakaoUserRes.id);  
+        } catch(error) {
+          const userCredentials = await createUserWithEmailAndPassword(auth, email, kakaoUserRes.id);
+          const { user } = userCredentials;
+          if(profile.nickname && user) await updateProfile(user, { displayName: profile.nickname });
+          await createAuthUser(user);
+        }
+        navigate('/');
       })();
-    } else {
-      console.log("No code");
     }
-  })
-
-  
+  }, [Kakao.API, Kakao.Auth, createAuthUser, location.search, navigate])
 
   const kakaoLoginHandler = () => {
     Kakao.Auth.authorize({
@@ -61,20 +63,12 @@ export default function KakaoLogin() {
     })
   }
 
-  const kakaoLogoutHandler = () => {
-    Kakao.Auth.logout()
-      .then((response) => {
-        console.log(Kakao.Auth.getAccessToken());
-      })
-      .catch((error) => {
-        console.log('Not Logged In');
-      });
-  }
-
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-    <SubmitButton onClick={kakaoLoginHandler}>KakaoLogin</SubmitButton>
-    <SubmitButton onClick={kakaoLogoutHandler}>KakaoLogout</SubmitButton>
-    </div>
+    <SubmitButton type="button" name="social" onClick={kakaoLoginHandler}>
+      <img className="mr-2 w-6 h-6" src={require('../assets/kakao.png')} alt='카카오톡 로그인'/>
+      카카오로 시작하기
+    </SubmitButton>
   )
 }
+
+export default KakaoLogin;
