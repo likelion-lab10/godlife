@@ -1,18 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "pages/LoginPage";
+import RegisterPage from "pages/RegisterPage";
+import Main from "../pages/Main";
+import Recruitment from "pages/Recruit";
+import Certificate from "../pages/Certificate";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={ } />
-        <Route path="/login" element={ } />
-        <Route path="/recruit" element={ } />
-        <Route path="/register" element={ } />
-        <Route path="/dashboard" element={ } />
-        <Route path="/filter" element={ } />
-        <Route path="/search" element={ } />
-        <Route path="/certificate" element={ } />
-        <Route path="/participate" element={ } /> */}
+        <Route path="/" element={<Main />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/recruit" element={<Recruitment />} />
+        <Route path="/register" element={<RegisterPage />} />
+        {/* <Route path="/dashboard" element={ } /> */}
+        {/* <Route path="/filter" element={ } /> */}
+        {/* <Route path="/search" element={ } /> */}
+        <Route path="/certificate" element={<Certificate />} />
+        {/* <Route path="/participate" element={ } /> */}
       </Routes>
     </BrowserRouter>
   );

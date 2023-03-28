@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs  } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const {
   REACT_APP_API_KEY,
@@ -19,3 +21,5 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+export const dbService = getFirestore(app);
+export const storageService = getStorage(app);
