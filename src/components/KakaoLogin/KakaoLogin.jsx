@@ -14,7 +14,7 @@ function KakaoLogin() {
     Kakao.init(process.env.REACT_APP_KAKAO_REST_API_KEY);
   }
 
-  const redirectUri = "http://localhost:3000";
+  const redirectUri = `${location.origin}/godlife/login`;
   const scope = "profile_nickname,profile_image,account_email";
   useEffect(() => {
     
@@ -54,7 +54,7 @@ function KakaoLogin() {
         navigate('/');
       })();
     }
-  }, [Kakao.API, Kakao.Auth, createAuthUser, location.search, navigate])
+  }, [Kakao.API, Kakao.Auth, createAuthUser, location.search, navigate, redirectUri])
 
   const kakaoLoginHandler = () => {
     Kakao.Auth.authorize({
