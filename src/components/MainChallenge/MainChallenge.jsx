@@ -4,7 +4,7 @@ import { ReactComponent as Challenge } from 'assets/challenge.svg';
 function MainChallenge() {
   const navigate = useNavigate();
   return (
-    <button className='mb-[44px] mx-[28px]' onClick={() => navigate('/recruit')}>
+    <button className='mb-[44px] mx-[28px]' onClick={() => navigate('/filter')}>
       <Challenge/>
     </button>
   )
