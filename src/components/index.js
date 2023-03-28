@@ -11,4 +11,5 @@ export { default as CurrentChallengeCard } from './CurrentChallengeCard/CurrentC
 export { default as Img } from './Img/Img'
 export { default as CurrentChallengeTitle } from './CurrentChallengeTitle/CurrentChallengeTitle'
 export { default as CurrentChallengeContainer } from './CurrentChallengeContainer/CurrentChallengeContainer'
+export { default as Logo } from './Logo/Logo'
 

@@ -6,7 +6,7 @@ import environmentIcon from '../assets/environment.svg';
 const CategoriesButton = ({ filter, selected, handleFilterClick }) => {
   const iconPaths = {
     생활습관: calendarIcon,
-    식습관: foodIcon,   
+    식습관: foodIcon,
     취미: habitIcon,
     환경: environmentIcon,
   };
@@ -14,15 +14,15 @@ const CategoriesButton = ({ filter, selected, handleFilterClick }) => {
   return (
     <button
       className={`px-1 py-2 text-xs font-medium leading-4 rounded-full mt-[10px] ${
-        selected ? "text-white bg-primary" : "text-gray-700 bg-white"
+        selected ? 'text-white bg-primary' : 'text-gray-700 bg-white'
       }`}
       onClick={() => {
         handleFilterClick(filter);
       }}
     >
-      <div className="flex items-center">
+      <div className='flex items-center'>
         {iconPaths[filter] && (
-          <img src={iconPaths[filter]} alt="icon" className="w-4 h-4 mr-2" />
+          <img src={iconPaths[filter]} alt='icon' className='w-4 h-4 mr-2' />
         )}
         <div>{filter}</div>
       </div>
@@ -30,4 +30,4 @@ const CategoriesButton = ({ filter, selected, handleFilterClick }) => {
   );
 };
 
-export default CategoriesButton
+export default CategoriesButton;
